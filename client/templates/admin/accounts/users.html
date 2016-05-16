@@ -1,0 +1,243 @@
+<template name="users">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1 style="margin-left: 10px">
+            Cuentas
+            <!-- <small>Detalle de usuarios</small> -->
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Cuentas</li>
+          </ol>
+        </section>
+      
+        <section class="content">
+     
+        <div class="row">
+        <div class="content tablecenter">
+   <!--      {{# each materials }}
+        
+        
+        {{/ each }} -->
+
+        {{> tabular table=TabularTables.Users class="table table-striped table-bordered table-condensed table-hover"}}
+        </div>
+        </div>
+        <div class="row">
+        <div class="content tablecenter">
+        {{#autoForm schema=schema id="createUsertForm" type="method" meteormethod="createUser2"}}
+          <fieldset>
+            <legend><a><i class="ion-person-add" style="font-size:30px;"></i> CREAR NUEVO USUARIO</a></legend>
+            {{> afQuickField name="username"}}
+            {{> afQuickField name="email"}}
+            {{> afQuickField name="roles" type="select" options=RolesOptions}}
+            <!-- {{> afQuickField name="zoneId"}} -->
+            <!-- {{> afQuickField name="phone"}} -->
+            {{> afQuickField name="password" type="password"}}
+            {{> afQuickField name="passwordConfirmation" type="password"}}
+            <div align="right">
+              <button type="reset" class="btn btn-default">Reset</button>
+              <button type="submit" class="btn btn-primary">Crear</button>             
+            </div>
+          </fieldset>
+  {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+      </div>
+</template>
+
+<template name="ShowProfile">
+      <!-- Content Wrapper. Contains page content -->
+     
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1 style="margin-left: 10px">
+            Perfil
+            <small>Aqui puedes actualizar tu perfil</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Perfil</li>
+          </ol>
+        </section>
+      
+        <section class="content">
+     
+        <div class="row">
+        <div class="content tablecenter">
+     <!--    {{> quickForm schema=schema collection="Meteor.users" doc=this id="ShowProfile" type="update"}}
+ -->        {{#autoForm schema=schema collection="Meteor.users" doc=this id="ShowProfile" type="update"}}
+          <fieldset>
+            <legend>Perfil de {{username}}</legend>
+            {{> afQuickField name="username"}}
+           
+            <div class="form-group">
+                      <label>E-mail</label>
+                      <input class="form-control" value="{{emails.[0].address}}" disabled>
+                      </div>
+            {{> afQuickField name="roles" type="select" options=RolesOptions}}
+           
+            <div align="right">
+              <button type="button" class="btn btn-danger remove">Borrar</button>
+              <button type="button" class="btn btn-default cancel">Cancelar</button>
+              <button type="submit" class="btn btn-primary cancel">Guardar</button>           
+            </div>
+          </fieldset>
+      {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+  
+</template>
+<template name="login">
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <!-- <a href=""><b>Whizzcloud</b>®</a> -->
+    <img src="images/logoeglow.png" style="height: 120px;opacity: 0.6;">
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg" style="font-size: 18px; color:white;">INGRESO INFLUENCIADORES</p>
+
+<!--     <form>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control login" style="color:white;" placeholder="Email" name="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control login" style="color:white;" placeholder="Password" name="password">
+        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-block btn-flat login-btn" value="Login">Ingresar</button>
+        </div>
+      </div>
+    </form> -->
+    <!-- {{> loginButtons}} -->
+
+    <div class="social-auth-links text-center">
+      <!-- <p>- OR -</p> -->
+     <!--  <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Ingresar con
+        Facebook</a> -->
+        <div class="row" style="margin-top: 20px;">
+       <a href="#" class="btn btn-block btn-social btn-twitter btn-flat tw-login"><i class="fa fa-twitter"></i> Iniciar Sesión con Twitter</a>
+       </div>
+       <div class="row" style="margin-top: 20px;">
+        <a href="#" class="btn btn-block btn-social btn-instagram btn-flat insta-login"><i class="fa fa-instagram"></i> Iniciar Sesión con Instagram</a>
+        </div>
+     <!--  <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Ingresar con
+        Google+</a> -->
+    <div class="row" style="margin-top: 20px;">
+    <span>
+    Al registrarte estarás aceptando los 
+    <a href="http://google.com" target="_blank" style="color: white;">Terminos y condiciones</a>
+    </span>
+    </div>
+    </div>
+    <!-- /.social-auth-links -->
+
+   <!--  <a href="#">Olvide mi contraseña</a><br>
+    <a href="#" class="text-center">Registrar un nuevo usuario</a> -->
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+</body>
+</template>
+<template name="loginbrand">
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <!-- <a href=""><b>Whizzcloud</b>®</a> -->
+    <img src="images/logoeglow.png" style="height: 120px;opacity: 0.6;">
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg" style="font-size: 18px; color:white;">INGRESO EMPRESAS</p>
+
+    <form>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control login" style="color:white;" placeholder="Email" name="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control login" style="color:white;" placeholder="Password" name="password">
+        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-block btn-flat login-btn" value="Login">Ingresar</button>
+        </div>
+      </div>
+    </form>
+    <!-- {{> loginButtons}} -->
+
+    
+    <span>
+    <a href="#" style="color:white;">Olvide mi contraseña</a>
+    </span>
+    <!-- <a href="#" class="text-center">Registrar un nuevo usuario</a> -->
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+</body>
+</template>
+<template name="loginf">
+    <body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <!-- <a href="login.php"><b>Whizzcloud</b>®</a> -->
+    <img src="images/logoeglow.png" style="height: 120px;opacity: 0.6;">
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg label label-danger"><div class="alert alert-danger" role="alert" align="center">Usuario o clave Inválido</div></p>
+    <p class="login-box-msg">Iniciar Sesión</p>
+
+    <form>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control login" placeholder="Email" name="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control login" placeholder="Password" name="password">
+        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat" value="Login">Ingresar</button>
+        </div>
+      </div>
+    </form>
+
+   <!--  <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Ingresar con
+        Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Ingresar con
+        Google+</a>
+    </div> -->
+    <!-- /.social-auth-links -->
+
+    <a href="#">Olvide mi contraseña</a><br>
+    <a href="#" class="text-center">Registrar un nuevo usuario</a>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+</body>
+</template>
+<template name="ButtonShowUsers">
+  <div align="center"><button type="button" class="btn btn-xs btn-primary edit"><i class="ion-gear-b"> Editar</i></button></div>
+</template>

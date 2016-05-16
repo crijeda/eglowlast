@@ -1,0 +1,438 @@
+<template name="_influencerHeader">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="{{pathFor 'home'}}" class="logo logosup">
+            <!-- <b>Admin</b>LTE 2 -->
+            <img src="{{pathFor 'home'}}images/eglow.png" style="margin-left: 30px;">
+        </a>
+
+        <!-- <a class="navbar-brand logosup" href="http://agenciadev01.info/lab/digirep/front-business/index.php"></a> -->
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav navbar-top-links">
+                    {{#if currentUser}}
+                    
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <li class="dropdown tasks-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-tasks"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- <li class="header">You have 9 tasks</li> -->
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                {{# each campaigns}}
+                                   <li>
+                                        <a href="{{ pathFor 'influencer' }}/campaigns/{{_id}}">
+                                            <div>
+                                                <p>
+                                                    <strong>
+                                                        {{# if profile.firstname}}
+                                                        {{ profile.firstname }} {{ profile.lastname }}
+                                                        {{else}}
+                                                        {{ user.username }} 
+                                                        {{/if}}
+                                                    </strong>
+                                                    <br>
+                                                        {{name}}
+                                                    <span class="pull-right text-muted">
+                                                        {{percentcomplete}}%
+                                                    </span>
+                                                </p>
+                                                <div class="progress progress-striped active">
+                                                    <div class="progress-bar progress-bar-warning" style="width: {{percentcomplete}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{percentcomplete}}" role="progressbar">
+                                                        <span class="sr-only">
+                                                            {{percentcomplete}}% completo
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    {{/each}}
+                                    
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="{{ pathFor 'influencerCampaigns' }}"><b>Ver todas mis campañas </b><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu menu">
+                            <li>
+                                <a href="{{ pathFor 'influencer' }}/preferences/{{userId}}">
+                                    <span>Mis preferencias</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ pathFor 'influencer' }}/profile/{{userId}}">
+                                    <span>Mi perfil</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ pathFor 'influencer' }}/billing/{{userId}}">
+                                    <span>Mis datos de facturacion</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-twitter"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu menu">
+                         <li>
+                               <a href="{{ pathFor 'influencerOffers' }}">
+                                   <span>Ofertas de Campañas</span>
+                               </a>
+                           </li>
+
+                            <li>
+                                <a href="{{ pathFor 'influencerCampaigns' }}">
+                                    <span>Campañas activas</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ pathFor 'influencerCampaignsComplete' }}">
+                                    <span>Historial de campañas</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                  <!--   <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bar-chart"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu menu">
+                            <li>
+                                <a href="#">
+                                    <span>Historial de puntaje</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <span>Comprar reporte</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <span>Quien ha visto mi perfil</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+
+                    <!-- // -->
+                   <!--  <li class="dropdown tasks-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 9 tasks</li>
+                            <li>
+                                inner menu: contains the actual data 
+                                <ul class="menu">
+
+                                   <li>
+                                        <a href="#">
+                                            <div>
+                                                <span class="pull-right text-muted">
+                                                    Ayer
+                                                </span>
+                                                <strong>
+                                                    Marcos Cardenas
+                                                </strong>
+                                                <br>
+                                                    Carolina Mandil,
+                                                <br>
+                                                Cuando me vas a pescar?
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <span class="pull-right text-muted">
+                                                    Ayer
+                                                </span>
+                                                <strong>
+                                                    Marcos Cardenas
+                                                </strong>
+                                                <br>
+                                                    Carolina Mandil,
+                                                <br>
+                                                Cuando me vas a pescar?
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#"><b>Leer todos los mensajes </b><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- // -->
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-building"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu menu">
+                            <li>
+                                <a href="#" data-action="logout" class="logout">
+                                        <!-- Support Team -->
+                                        <span><i class="fa fa-sign-out"></i>Salir</span>
+                                    <!-- <p>Why not buy a new awesome theme?</p> -->
+                                </a>
+                               <!--   <a href="#" data-action="logout" class="btn btn-default btn-flat logout">Salir</a> -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    {{else}}
+                    <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
+                    <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a> {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {{> _influencerSidebar}}
+
+</template>
+
+<template name="_influencerSidebar">
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="navbar-default sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <h1 class="user-name colorgray" id="data-profile-name">
+                {{# if profile.firstname}}
+                {{ profile.firstname }} {{ profile.lastname }}
+                {{else}}
+                {{ user.username }} 
+                {{/if}}
+                </h1>
+                <!-- <br> -->
+               <div class="user-avatar-box">
+
+                        {{# if profileimage}}
+                        <img src="{{ profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;">
+                        {{ else }}
+                        <img src="{{ datainstagram.profilestatistics.[0].profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;">
+                        {{/if}}
+
+                </div>
+                <div class="col-xs-12 col-md-12">
+                    <!-- <h2 class="points" id="data-user-points">99 Pts.</h2> -->
+                    <p class="interests" id="data-profile-bio">
+                    {{ # if profile.bio}}
+                    {{ profile.bio }}
+                    {{else}}
+                    {{ datatwitter.profilestatistics.[0].profilebio }} 
+                    {{ datainstagram.profilestatistics.[0].profilebio }} 
+                    {{/if}}
+                    </p>
+                </div><!-- /.col-xs-12 -->
+
+            </div>
+
+            <!-- Sidebar Menu -->
+            <!--<ul class="sidebar-menu nav">
+               
+                <li class="active"><a href="{{ pathFor 'home' }}"><i class="fa fa-dashboard"></i><span>Inicio</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-star"></i><span>Mi Cuenta</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu nav nav-second-level">
+                        <li><a href="{{ pathFor 'influencer' }}/preferences/{{userId}}">Mis Preferencias</a></li>
+                        <li><a href="{{ pathFor 'influencer' }}/profile/{{userId}}">Mi Perfil</a></li>
+                        <li><a href="{{ pathFor 'influencer/facturation' }}">Mis datos de Facturacion</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ pathFor 'influencer/offers' }}">
+                        <i class="fa fa-star"></i><span>Ofertas de patrocinio</span>
+                    </a>
+                </li>
+
+                <li class="treeview ">
+                    <a href="#"><i class="fa fa-star"></i><span>Campañas</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu nav nav-second-level">
+                        <li>
+                            <a href="{{ pathFor 'influencer/campaigns' }}">Campañas Activas</a>
+                        </li>
+                        <li>
+                            <a href="{{ pathFor 'influencer/campaignsRecord' }}">Historial</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview ">
+                    <a href="#"><i class="fa fa-star"></i><span>Estadisticas</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu nav nav-second-level">
+                        <li><a href="#">Historial de puntaje</a></li>
+                        <li><a href="#">Comprar reporte</a></li>
+                        <li><a href="{{ pathFor 'influencer/visits' }}">Quien ha visto mi perfil</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview ">
+                    <a href="#"><i class="fa fa-star"></i><span>Mensajes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu nav nav-second-level">
+                        <li><a href="#">Mensajes de agencias</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ pathFor 'influencer/help' }}">
+                        <i class="fa fa-star"></i><span>Ayuda</span>
+                    </a>
+                </li>
+
+            </ul> -->
+
+            <ul class="sidebar-menu nav"> <!--version parche sin jquery-->
+
+                <li>
+                    <a href="{{ pathFor 'home' }}"><i class="fa fa-dashboard"></i><span>Inicio</span></a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-star"></i>
+                        <span>Mi Cuenta</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="nav">
+                        <li><a href="{{ pathFor 'influencer' }}/preferences/{{userId}}">Mis Preferencias</a></li>
+                        <li><a href="{{ pathFor 'influencer' }}/profile/{{userId}}">Mi Perfil</a></li>
+                        <li><a href="{{ pathFor 'influencer' }}/billing/{{userId}}">Mis datos de Facturacion</a></li>
+                    </ul>
+                </li>
+
+           <!--      <li>
+                    <a href="{{ pathFor 'influencer/offers' }}">
+                        <i class="fa fa-star"></i><span>Ofertas de patrocinio</span>
+                    </a>
+                </li> -->
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-star"></i><span>Campañas</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="nav">
+                    <li>
+                           <a href="{{ pathFor 'influencerOffers' }}">Ofertas de Campañas</a>
+                       </li>
+                        <li>
+                            <a href="{{ pathFor 'influencerCampaigns' }}">Campañas Activas</a>
+                        </li>
+                        <li>
+                            <a href="{{ pathFor 'influencerCampaignsComplete' }}">Historial</a>
+                        </li>
+                    </ul>
+                </li>
+<!-- 
+                <li>
+                    <a href="#">
+                        <i class="fa fa-star"></i><span>Estadisticas</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="nav">
+                        <li><a href="#">Historial de puntaje</a></li>
+                        <li><a href="#">Comprar reporte</a></li>
+                        <li><a href="{{ pathFor 'influencer/visits' }}">Quien ha visto mi perfil</a></li>
+                    </ul>
+                </li> -->
+
+               <!--  <li>
+                    <a href="#">
+                        <i class="fa fa-star"></i><span>Mensajes</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="nav">
+                        <li><a href="{{ pathFor 'meteorchat' }}">Mensajes de agencias</a></li>
+                    </ul>
+                </li> -->
+
+                <li>
+                    <a href="{{ pathFor 'influencer/help' }}">
+                        <i class="fa fa-star"></i><span>Ayuda</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- /.sidebar-menu -->
+
+            <!-- /.sidebar-collapse -->
+            <div class="clearfix"></div><!-- /.clearfix -->
+            <div class="sidebar-bottom hidden-xs">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- <img src="http://agenciadev01.info/lab/digirep/img/iso-small.png"> -->
+                        <a href="https://www.facebook.com/digirepCL?fref=ts" target="_blank"><i class="fa fa-facebook-official fa-fw"></i></a>
+                        <a href="https://twitter.com/DigiRepCL" target="_blank"><i class="fa fa-twitter-square fa-fw"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-fw"></i></a>
+                        <a href="https://www.linkedin.com/company/digirep" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i></a>
+                    </div><!-- /.col-xs-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.sidebar-bottom -->
+
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</template>
+
+<template name="simple">
+  <h1>Calling serve method</h1>
+  <input type="button" value="Call" />
+  <div id="simpleResult">{{result}}</div>
+</template>
+
+<template name="passData">
+  <h1>passing data to server method</h1>
+  <span>Name: </span><input type="text" value="Nachiket"/>
+  <input type="button" value="Call" />
+  <div id="passDataResult">{{result}}</div>
+</template>

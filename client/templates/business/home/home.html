@@ -1,0 +1,570 @@
+<template name="homeBusiness">
+
+	<section class="content-header">
+		<h1 class="page-header gradientbg">
+			Resumen
+		</h1>
+	</section>
+
+	<section class="content opportunities">
+
+		<div class="row">
+			<div class="col-lg-3 col-md-6 feature-box">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-2 icon">
+								<img src="http://agenciadev01.info/lab/digirep/img/icons/offers.png" alt="Nuevas ofertas" />
+							</div>
+							<div class="col-xs-10">
+								<h3> Iniciar una campaña</h3>
+							</div>
+						</div>
+					</div>
+					<a href="{{pathFor 'business/newCampaign'}}">
+						<div class="panel-footer">
+							<span class="pull-right">Ver todas</span>
+							<div class="clearfix"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 feature-box">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-2 icon">
+								<img src="http://agenciadev01.info/lab/digirep/img/icons/clock.png" alt="Tweets programados" />
+							</div>
+							<div class="col-xs-10">
+								<span class="huge">3</span>
+								<h3>Campañas activas</h3>
+							</div>
+						</div>
+					</div>
+					<a href="#">
+						<div class="panel-footer">
+							<span class="pull-right">Ver todos</span>
+							<div class="clearfix"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 feature-box">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-2 icon">
+								<img src="http://agenciadev01.info/lab/digirep/img/icons/man.png" alt="Tweets programados" />
+							</div>
+							<div class="col-xs-10">
+								<span class="huge">3</span>
+								<h3>Influenciadores en la mira</h3>
+							</div>
+						</div>
+					</div>
+					<a href="{{pathFor 'business/recommended'}}">
+						<div class="panel-footer">
+							<span class="pull-right">Ver todos</span>
+							<div class="clearfix"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 feature-box">
+				<div class="panel panel-default conect">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-2 icon">
+								<img src="http://agenciadev01.info/lab/digirep/img/icons/share.png" alt="Noticias" />
+							</div>
+							<div class="col-xs-10">
+								<h3>Conecta con tus redes</h3>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-right">
+							<i class="fa fa-facebook-official color"></i>
+							<i class="fa fa-twitter-square color"></i>
+							<i class="fa fa-instagram"></i>
+							<i class="fa fa-linkedin-square"></i>
+						</span>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		 <!-- /.row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <hr class="gradientbg" />
+            </div><!-- /.col-xs-12 -->
+        </div>
+
+	</section>
+
+	<section class="content">
+
+
+		<!-- <h2>Influenciadores</h2> -->
+
+		{{> example}}
+
+	</section>
+
+	<section class="content">
+
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header gradientbg">Campañas Activas</h1>
+            </div>
+        </div>
+
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">Vienesa mundial</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/628075935217131520/nolxxKRP_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Kathy Bodis</b><br />Presentadora de TV, Relacionadora Pública y Emprendiendo con DIGIREP. Amo comer, dormir, animales, videojuegos, maquillaje, tecnología, sol y viajar!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">El completo de Chile</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/589943087503380480/jneYpYhx_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Jorge Gómez V.</b><br />Periodista. Estadístico. Parte de @AlAireLibre y @cadena_nacional. La selección es lo más importante y Chile 2015 cambió mi vida para siempre.</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">Vienesa presidencial</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/589943087503380480/jneYpYhx_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Jorge Gómez V.</b><br />Periodista. Estadístico. Parte de @AlAireLibre y @cadena_nacional. La selección es lo más importante y Chile 2015 cambió mi vida para siempre.</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+		</div><!-- /.row -->
+	</section>
+
+	<section class="content statistics">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header gradientbg">Estadísticas</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <div class="row statistics">
+        	<div class="col-md-12 col-lg-8">
+        		<div class="row">
+
+        		</div>	
+        		
+        	</div><!-- /.col-xs-6 -->
+
+        	<div class="col-lg-4 visible-lg">
+                <div class="panel panel-shown">
+                    <div class="panel-body">
+                        <p class="star">
+                            <img src="http://agenciadev01.info/lab/digirep/img/icons/star.png" alt="Esta semana apareciste en..." />
+                        </p>
+                        <h3>Hoy de DIGIREP:</h3>
+                        <div class="row">
+                            <div class="col-xs-1 col-xs-offset-1">
+                                <i class="fa fa-search fa-fw"></i>
+                            </div><!-- /.col-xs-3 -->
+                            <div class="col-xs-9">
+                                <p>5 influenciadores recomendados</p>
+                            </div><!-- /.col-xs-9 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-xs-1 col-xs-offset-1">
+                                <i class="fa fa-star fa-fw"></i>
+                            </div><!-- /.col-xs-3 -->
+                            <div class="col-xs-9">
+                                <p>3 campañas activas</p>
+                            </div><!-- /.col-xs-9 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-xs-1 col-xs-offset-1">
+                                <i class="fa fa-area-chart fa-fw"></i>
+                            </div><!-- /.col-xs-3 -->
+                            <div class="col-xs-9">
+                                <p>2 oportunidades de negocio</p>
+                            </div><!-- /.col-xs-9 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <a class="btn-premium" href="">Mira todos los detalles aqui</a>
+                            </div><!-- /.col-xs-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+        	</div><!-- /.col-xs-3 -->
+
+        </div><!-- /.row estadisticas -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <hr class="gradientbg" />
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+
+    <section class="content">
+
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header gradientbg">Mis Campañas Anteriores</h1>
+            </div>
+        </div>
+
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">Vienesa mundial</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/628075935217131520/nolxxKRP_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Kathy Bodis</b><br />Presentadora de TV, Relacionadora Pública y Emprendiendo con DIGIREP. Amo comer, dormir, animales, videojuegos, maquillaje, tecnología, sol y viajar!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">El completo de Chile</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/589943087503380480/jneYpYhx_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Jorge Gómez V.</b><br />Periodista. Estadístico. Parte de @AlAireLibre y @cadena_nacional. La selección es lo más importante y Chile 2015 cambió mi vida para siempre.</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+			<div class="col-md-6 col-lg-4">
+				<div class="chartbox campaigns single-campaign">
+					<div class="row">
+						<div class="col-xs-10 col-xs-offset-1">
+							<div class="row">
+								<div class="col-xs-8">
+									<h3 class="page-header gradientbg">Vienesa presidencial</h3>
+									<b>Inicio:</b> 05-07-2015<br>
+									<b>Término:</b> 22-07-2015<br>
+								</div><!-- /.col-xs-8 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-12">
+									<h4><b>Influenciadores</b></h4>
+								</div><!-- /.col-xs-12 -->
+							</div><!-- /.row -->
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/589943087503380480/jneYpYhx_400x400.jpg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Jorge Gómez V.</b><br />Periodista. Estadístico. Parte de @AlAireLibre y @cadena_nacional. La selección es lo más importante y Chile 2015 cambió mi vida para siempre.</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="https://pbs.twimg.com/profile_images/491077197201829888/fQV2RA3o_400x400.jpeg" class="img-responsive" alt="" />
+								</div><!-- /.col-xs-2 -->
+								<div class="col-xs-10">
+									<p><b>Carolina Mandil</b><br />Ganadora de @StartupChile Co-Founder &amp; CEO de @DIGIREPCL E-Commerce/Digital Expert!</p>
+								</div><!-- /.col-xs-10 -->
+							</div>
+							
+						</div><!-- /.col-xs-10 col-xs-offset-1 -->
+					</div><!-- /.row -->
+				</div><!-- /.chartbox -->
+				<!-- /.panel -->
+			</div><!-- /.col-sm-4 -->
+		</div><!-- /.row -->
+	</section>
+
+</template>
+
+<template name="example">
+<div>
+<h2 class="gradientbg" style="color: #000053;">
+			Busqueda Simple de Influenciadores
+		</h2>
+		<div class="row">
+            <div class="col-xs-12">
+                <hr class="gradientbg">
+            </div><!-- /.col-xs-12 -->
+        </div>
+<div class="row">
+<!-- 	<h2 class="gradientbg">
+			Filtros
+		</h2> -->
+	<div id="filters" class="button-group col-md-6">
+	<h2 class="gradientbg" style="color: #000053;">
+			Red Social
+		</h2>  
+	<!--   <button class="btn btn-info button is-checked" data-filter="*">show all</button>
+	  <button class="btn btn-info button" data-filter=".interes1">Interes 1</button>
+	  <button class="btn btn-info button" data-filter=".interes2">Interes 2</button>
+	  <button class="btn btn-info button" data-filter=".interes3, .interes4">Interes 3 y Interes 4</button> -->
+	  <button class="btn btn-primary button" data-filter=".twitter">Twitter</button>
+	  <button class="btn btn-primary button" data-filter=".instagram">Instagram</button>
+
+	</div>
+
+<!-- 	<h2 class="gradientbg">
+			Ordenar por
+		</h2> -->
+	<div id="sorts" class="button-group col-md-6"> 
+	<h2 class="gradientbg" style="color: #000053;">
+			Ordenar por
+		</h2> 
+	  <button class="btn btn-primary button is-checked" data-sort-by="original-order">Original</button>
+	  <button class="btn btn-primary button" data-sort-by="username">Nombre</button>
+	  <button class="btn btn-primary button" data-sort-by="followers">Followers</button>
+	  <button class="btn btn-primary button" data-sort-by="retweets">Retweets</button>
+	  <!-- <button class="btn btn-info button" data-sort-by="age">Edad</button> -->
+	</div>
+	</div>
+	
+	</div>
+	<br>
+	<div class="row">
+            <div class="col-xs-12">
+                <hr class="gradientbg">
+            </div><!-- /.col-xs-12 -->
+        </div>
+	<div class="isotope">
+
+
+	
+
+{{#each ItemsToDisplay }}
+	{{#if dataTwitter}}
+		<div class="element-item col-md-3 {{filters}}" >
+
+			<img src="{{image}}" style="height: 300px;" class="img-responsive user-avatar">
+
+			<div class="title">
+				<div><h2 class="username" >{{ dataTwitter.name }}</h2></div>
+				<div><h3 class="age">XX años</h3></div>
+			</div>
+
+			<div class="body">
+				<!-- {{# if twitter}} -->
+					<div class="twitter">
+						<p>
+							<i class="fa fa-twitter-square"></i>
+							<span class="twitterName">{{twitterAccount}}</span></p>
+						<p>
+							<i class="fa fa-users"></i>
+							 <span class="followers"> {{dataTwitter.qtyfollowers}}</span>
+							<i class="fa fa-retweet"></i>
+							 <span class="retweets"> {{dataTwitter.qtyretweets}}</span>
+						</p>
+					</div>
+				<!-- {{/ if}}
+
+				{{# if instagram}} -->
+					<div class="instagram">
+						<p>
+							<i class="fa fa-instagram"></i>
+							 <span class="instagramName">{{instagramAccount}}</span>
+						</p>
+						<p>
+							<i class="fa fa-heart"></i>
+							 <span class="likes"> {{dataInstagram.qtylikes}}</span>
+						</p>
+					</div>
+				<!-- {{/ if}} -->
+			</div>
+
+		</div>
+
+	{{/if}}
+  {{/ each }}
+</div>
+</template>

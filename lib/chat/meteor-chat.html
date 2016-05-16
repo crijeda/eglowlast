@@ -1,0 +1,114 @@
+<template name="meteorchat">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1 style="margin-left: 10px">
+            Mensajes
+            <small>Selecciona el grupo</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Mensajes</li>
+          </ol>
+        </section>
+      
+        <section class="content">
+     
+        <div class="row">
+        <div class="content tablecenter">
+            {{> chat}}
+        </div>
+        </div>
+        
+        </section>
+      </div>
+</template>
+
+<template name="chat">
+        {{#if currentUser}}
+        <div class="box box-success">
+        <div class="row">
+        <div class="col-xs-8 col-md-8">
+            <div class="box-header">
+              <i class="fa fa-comments-o"></i>
+
+              <h3 class="box-title">Mensajes</h3>
+
+            <div class="box-body chat" id="chat-box">
+              <!-- chat item -->
+              {{> messages}}
+              <!-- /.item -->
+            </div>  <!-- /.chat -->
+          {{> input}}
+          </div>
+        </div>
+        <div class="col-xs-4 col-md-4">
+           {{> rooms}}
+                </div>
+          
+        </div>
+        </div>
+
+        {{else}}
+        <div class="hero-unit">
+            <h1>Welcome to MeteorChat</h1>
+            <p>Please login!</p>
+        </div>
+        {{/if}}
+</template>
+
+<template name="input">
+    <div class="box-footer">
+        <div class="input-group" style="width:100%;">
+            <input id="msg" class="form-control" placeholder="Escribe un mensaje...">
+
+            <div class="input-group-btn">
+                 <!--  <button type="button" class="btn btn-success sendMsg"><i class="fa fa-plus"></i></button> -->
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="messages">
+    <h4><b>Grupo: </b>{{# if roomname}}{{roomname}}{{else}}Selecciona un grupo de conversacion{{/if}}</h4>
+    <div id="messages" style="background-color: #ffffff; border: 1px solid darkgray; max-height: 400px; overflow: auto">
+        {{#each messages}}
+            {{> message}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="message">
+    <div class="item">
+        <img src="{{profileimage}}" alt="user image" class="offline">
+        <p class="message">
+                  <a href="#" class="name">
+                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{timestamp}}</small>
+                    {{user}}
+                  </a>
+                  {{msg}}
+        </p>
+    </div>
+</template>
+
+<template name="rooms">
+<div size="{{roomscount}}" style="width:100%;">
+
+  <h4><b>Selecciona un Grupo:</b></h4>
+  <br>
+
+    {{#each rooms}}
+    <div>
+        <button class="btn btn-default" style="width:90%;">{{> room}}</button>
+    </div>
+    {{/each}}
+
+</div>
+
+
+</template>
+
+<template name="room">
+    <li style="cursor: pointer; {{roomstyle}}">{{roomname}}</li>
+</template>

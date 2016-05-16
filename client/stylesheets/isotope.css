@@ -1,0 +1,41 @@
+/* isotope */
+
+.element-item img{
+	width:100%;
+}
+
+.element-item .title{
+	position:absolute;
+	top:0;
+}
+
+.element-item .title h2, .element-item .title h3{
+	
+	padding-left:10px;
+	padding-right:2px;
+	background-color: #000053;
+	color: white;
+	display:inline-block;
+}
+
+.element-item .title h2{font-size: 1.7em;}
+.element-item .title h3{font-size: 1.3em;}
+
+.element-item .body{
+	background:#EEE;
+	color: #000053;
+	height: 150px;
+}
+
+.element-item .body > div{
+	padding:10px;
+}
+
+.element-item .body p{
+	margin: 0px 0px 5px;
+	font-size: 1.1em;
+}
+
+.element-item .body .fa-twitter-square, .element-item .body .fa-instagram {
+	font-size: 1.3em;
+}

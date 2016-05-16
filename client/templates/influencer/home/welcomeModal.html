@@ -1,0 +1,41 @@
+<template name="exampleModal">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title">¡Bienvenido a Eglow!</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<p>
+						¡Nos interesa mantenerte al tanto de propuestas de distintas Marcas, dejanos tu E-mail y te contactaremos muy pronto. Mientras tanto revisa toda la info de tu perfil!
+					</p>
+
+					{{#autoForm id="profileintro" type="insert" collection="Profile"}}
+						<fieldset>
+
+							{{> afQuickField name='emailaccount'}}
+
+							<!--    {{> afQuickField name='twitteracccount'}}
+							{{> afQuickField name='instagramaccount'}} -->
+							<span style="display: none">
+								{{> afQuickField name='userId' value=user._id}} 
+							</span>
+
+						</fieldset>
+
+						<p>
+							<button type="submit" class="btn btn-premium sm intro">
+								Actualizar
+							</button>
+						</p>
+					{{/autoForm}}
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</template>

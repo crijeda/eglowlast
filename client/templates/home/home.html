@@ -1,0 +1,15 @@
+<template name="home">
+
+{{#if isAdmin}}
+{{> homeAdmin}}
+   {{/if}}
+
+   {{#if isInfluencer}}
+     {{> homeInfluencer}}
+   {{/if}}
+
+   {{#if isBusiness}}
+     {{> homeBusiness}}
+   {{/if}}
+
+</template>

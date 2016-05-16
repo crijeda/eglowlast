@@ -1,0 +1,18 @@
+body {
+	font-family: 'Century Gothic';
+	background-color: #000053;
+	color: #484848;
+	overflow-y:scroll;
+}
+
+h2{
+	text-transform: none;
+}
+
+a {
+	color: #000053;
+}
+
+footer {
+	background-color: white;
+}

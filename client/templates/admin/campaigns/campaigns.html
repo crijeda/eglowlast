@@ -1,0 +1,116 @@
+<template name="campaignsadmin">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1 style="margin-left: 10px">
+            Campañas
+            <small>Ingresa nuevas Campañas</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Marcas</li>
+          </ol>
+        </section>
+        <section class="content">
+        <div class="row">
+        <div class="content tablecenter">
+   <!--      {{# each materials }}
+        
+        
+        {{/ each }} -->
+
+        {{> tabular table=TabularTables.Campaigns class="table table-striped table-bordered table-condensed table-hover"}}
+        </div>
+        </div>
+     
+        <div class="row">
+        <div class="content tablecenter">
+     <!--    {{> quickForm schema=schema collection="Meteor.users" doc=this id="ShowCampaigns" type="update"}}
+ -->        {{#autoForm collection="Campaigns" id="CampaignsAdmin" type="insert"}}
+          <fieldset>
+            <legend></legend>
+            {{> afQuickField name="brands"}}
+            {{> afQuickField name="name"}}
+            {{> afQuickField name="description"}}
+            {{> afQuickField name="user"}}
+            {{> afQuickField name="fromdate"}}
+            {{> afQuickField name="todate"}}
+            <label class="control-label">Redes Sociales</label>
+            {{> afFieldInput name="social" type="select2" multiple=true}}
+            {{> afQuickField name="budget"}}
+            {{> afQuickField name="posts"}}
+            <div style="display: none;">
+            {{> afQuickField name="complete"}}
+            </div>
+           
+            <div align="right">
+              <button type="submit" class="btn btn-primary">Guardar</button>           
+            </div>
+          </fieldset>
+      {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+
+
+      </div>
+</template>
+
+<template name="ShowCampaignsAdmin">
+      <!-- Content Wrapper. Contains page content -->
+     
+        <!-- Content Header (Page header) -->
+      <section class="content-header">
+            <h1 style="margin-left: 10px">
+            Campañas
+            <small>Edita la campaña</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Campañas</li>
+          </ol>
+        </section>
+      
+        <section class="content">
+     
+        <div class="row">
+        <div class="content tablecenter">
+     <!--    {{> quickForm schema=schema collection="Meteor.users" doc=this id="ShowCampaigns" type="update"}}
+
+ -->        
+<!-- {{> quickForm collection="Campaigns" doc=this id="ShowCampaignsAdmin2" type="update"}} -->
+ {{#autoForm collection="Campaigns" doc=this id="ShowCampaignsAdmin2" type="update"}}
+          <fieldset>
+          <legend></legend>
+            {{> afQuickField name="brands" value=this.brands.[0]}}
+            {{> afQuickField name="name"}}
+            {{> afQuickField name="description"}}
+            {{> afQuickField name="user" value=this.user.[0]}}
+            {{> afQuickField name="fromdate"}}
+            {{> afQuickField name="todate"}}
+            <label class="control-label">Redes Sociales</label>
+            {{> afFieldInput name="social" type="select2" multiple=true}}
+            {{> afQuickField name="budget"}}
+            {{> afQuickField name="posts"}}
+            {{> afQuickField name="complete"}}
+            {{> afQuickField name="status"}}
+           
+            <div align="right">
+              <button type="button" class="btn btn-danger remove">Borrar</button>
+              <button type="button" class="btn btn-default cancel">Cancelar</button>
+              <button type="submit" class="btn btn-primary cancel">Guardar</button>           
+            </div>
+          </fieldset>
+      {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+  
+</template>
+
+<template name="ButtonShowCampaigns">
+  <div align="center"><button type="button" class="btn btn-xs btn-primary edit"><i class="ion-gear-b"> Editar</i></button></div>
+</template>

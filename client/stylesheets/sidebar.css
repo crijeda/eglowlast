@@ -1,0 +1,85 @@
+ul.sidebar-menu > li {
+	border-bottom: 1px solid #dadada;
+	border-color: #dadada !important;
+}
+
+ul.sidebar-menu > li:last-child {
+	border: none !important;
+}
+
+.sidebar-menu .treeview-menu > li > a {
+	padding: 12px 5px 12px 20px;
+}
+
+.sidebar-menu {
+	border-top: 2px solid #dadada;
+	padding: 5px 0px;
+}
+
+.sidebar-section p { /* Not found in html yet */
+	text-align: center;
+	color: #FFF;
+	margin: 10px;
+}
+
+.sidebar-section a { /* Not found in html yet */
+	text-decoration: underline;
+}
+
+.sidebar-section i { /* Not found in html yet */
+	color: #3c3c3c;
+}
+
+.sidebar-section h3 { /* Not found in html yet */
+	font-size: 16px;
+	text-transform: uppercase;
+	background: #dadada; /* Old browsers */
+	background: -moz-linear-gradient(left,  #dadada 0%, #d8d8d8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dadada), color-stop(100%,#d8d8d8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #dadada 0%,#d8d8d8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #dadada 0%,#d8d8d8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #dadada 0%,#d8d8d8 100%); /* IE10+ */
+	background: linear-gradient(to right,  #dadada 0%,#d8d8d8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dadada', endColorstr='#d8d8d8',GradientType=1 ); /* IE6-9 */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin: 10px;
+}
+
+.sidebar-section.similares img { /* Not found in html yet */
+	margin: 0px 10px 20px 20px;
+	max-height: 60px;
+}
+
+.sidebar-section.similares p { /* Not found in html yet */
+	text-align: left;
+	margin: 0;
+}
+
+.sidebar-section.similares .vermas { /* Not found in html yet */
+	text-align: right;
+	margin-right: 30px;
+}
+
+.sidebar-section .vermas { /* Not found in html yet */
+	font-size: 12px;
+	text-align: right;
+}
+
+.sidebar-bottom { /* Added to the bottom of sidebar */
+	color: #d4d4d4;
+	text-align: center;
+}
+
+.sidebar-bottom a { /* Added to the bottom of sidebar */
+	color: #FFF;
+	text-decoration: none;
+}
+
+.sidebar-bottom img { /* Added to the bottom of sidebar */
+	margin-right: 15px;
+}
+
+.sidebar-bottom i { /* Added to the bottom of sidebar */
+	margin-right: 10px;
+}

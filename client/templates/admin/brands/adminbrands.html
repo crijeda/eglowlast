@@ -1,0 +1,92 @@
+<template name="brandsadmin">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1 style="margin-left: 10px">
+            Marcas
+            <small>Ingresa nuevas marcas</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Marcas</li>
+          </ol>
+        </section>
+        <section class="content">
+        <div class="row">
+        <div class="content tablecenter">
+   <!--      {{# each materials }}
+        
+        
+        {{/ each }} -->
+
+        {{> tabular table=TabularTables.Brands class="table table-striped table-bordered table-condensed table-hover"}}
+        </div>
+        </div>
+     
+        <div class="row">
+        <div class="content tablecenter">
+     <!--    {{> quickForm schema=schema collection="Meteor.users" doc=this id="ShowBrands" type="update"}}
+ -->        {{#autoForm collection="Brands" id="BrandsAdmin" type="insert"}}
+          <fieldset>
+            <legend></legend>
+            {{> afQuickField name="name"}}
+            {{> afQuickField name="fileId" type="cfs-file" collection="uploads"}}
+           
+            <div align="right">
+              <button type="submit" class="btn btn-primary">Guardar</button>           
+            </div>
+          </fieldset>
+      {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+
+
+      </div>
+</template>
+
+<template name="ShowBrandsAdmin">
+      <!-- Content Wrapper. Contains page content -->
+     
+        <!-- Content Header (Page header) -->
+      <section class="content-header">
+            <h1 style="margin-left: 10px">
+            Marcas
+            <small>Ingresa nuevas marcas</small>
+          </h1>
+          <ol class="breadcrumb" style="margin-right: 10px; margin-left: 5px;">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Marcas</li>
+          </ol>
+        </section>
+      
+        <section class="content">
+     
+        <div class="row">
+        <div class="content tablecenter">
+     <!--    {{> quickForm schema=schema collection="Meteor.users" doc=this id="ShowBrands" type="update"}}
+ -->        {{#autoForm collection="Brands" doc=this id="ShowBrandsAdmin2" type="update"}}
+          <fieldset>
+          <legend></legend>
+            {{> afQuickField name="name"}}
+            {{> afQuickField name="fileId" type="cfs-file" collection="uploads"}}
+           
+            <div align="right">
+              <button type="button" class="btn btn-danger remove">Borrar</button>
+              <button type="button" class="btn btn-default cancel">Cancelar</button>
+              <button type="submit" class="btn btn-primary cancel">Guardar</button>           
+            </div>
+          </fieldset>
+      {{/autoForm}}
+        </div>
+        </div>
+        
+        </section>
+  
+</template>
+
+<template name="ButtonShowBrands">
+  <div align="center"><button type="button" class="btn btn-xs btn-primary edit"><i class="ion-gear-b"> Editar</i></button></div>
+</template>

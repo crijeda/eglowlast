@@ -1,0 +1,322 @@
+<template name="statsSection">
+
+	<section class="content statistics">
+		
+		<div class="row">
+			
+			<div class="col-md-12">
+
+				<!-- HEADER -->
+				<div class="row header-title">
+
+        			<h2 class="col-md-5 pull-left" style="">Estadísticas</h2>
+
+        			<div class="col-md-6 pull-right social-icons">
+
+        				<span class="pull-right">
+
+							{{  # if user.services.twitter.screenName }}
+								<i class="fa fa-twitter-square color" style="color: #009999;"></i>
+							{{ else }}
+								<i class="fa fa-twitter-square color"></i>
+							{{ /if }}
+
+							{{ # if user.services.instagram }}
+								<i class="fa fa-instagram" style="color: #009999;"></i>
+							{{ else }}
+								<i class="fa fa-instagram"></i>
+							{{ /if }}
+
+							<i class="fa fa-facebook-official color"></i>
+							<i class="fa fa-linkedin-square"></i>
+						</span>
+
+        			</div>
+
+        		</div>
+        		<!-- HEADER END-->
+
+
+
+        		<div class="row">
+	        		
+			        <!-- Twitter  -->
+
+			        {{ # if datatwitter.screenname}}
+		        	<div class="col-xs-6 col-md-6">
+		        		
+		        	<header class="chartbox title">
+
+		        		<h2>
+	        				<i class="fa fa-twitter"></i> Twitter
+
+	        				{{ # if lastupdatetw}}
+			        			<span>Última Actualización: {{ lastupdatetw }}</span>
+			        		{{/if}}
+	        			</h2>
+
+	        		</header>
+
+
+		        		<div class="row">
+				        	<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome">Mi Perfil</h2>
+				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
+					        			<div class="interline col-xs-6 col-md-6">	
+						        			<span id="data-total-followers">
+						        				{{ datatwitter.profilestatistics.[0].qtyfollowers }}
+						        			</span>
+						        			<h3>Seguidores</h3>
+						        		</div>
+
+						        		<div class="interline col-xs-6 col-md-6">	
+						        			<span id="data-total-following">
+						        				{{ datatwitter.profilestatistics.[0].qtyfollowing }}
+						        			</span>
+						        			<h3>Seguidos</h3>
+						        		</div>
+				        			</p>
+				        		</div>
+				        	</div>
+
+				        	<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome">Mis Acciones</h2>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-star sizelogo"></i> 
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datatwitter.profilestatistics.[0].qtyfavorites }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Favs</h3>
+			        				</div>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-retweet sizelogo"></i>
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					
+						        				{{ datatwitter.profilestatistics.[0].qtyretweets }}
+
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>RTs</h3>
+			        				</div>
+			        			</div>
+			        		</div>
+
+				        	<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome" style="font-size:16px;">Tipo de Contenido</h2>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><i class="fa fa-twitter sizelogo"></i> 
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datatwitter.profilestatistics.[0].qtytweets }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Tweets</h3>
+			        				</div>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><i class="fa fa-picture-o sizelogo"></i>
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datatwitter.profilestatistics.[0].images }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Imagenes</h3>
+			        				</div>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><i class="fa fa-video-camera sizelogo"></i> 
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datatwitter.profilestatistics.[0].videos }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Videos</h3>
+			        				</div>
+			        			</div>
+			        		</div>
+			        	</div>
+	        		</div>
+		        	
+		        	{{else}}
+		        	<div class="col-xs-12">
+		        		<div class="row">
+		        			<div class="col-xs-12">
+		        				<h2> <i class="fa fa-twitter"></i>  Twitter</h2>
+		        			</div>
+		        		</div>
+		        		<div class="row">
+			        	 <div class="col-xs-12 col-md-12">
+			        		<div class="chartbox sm single-number">
+			        			<p><i class="fa fa-twitter" style="color: #000053;"></i> <span id="data-facebook-fans"><button type="submit" class="btn btn-default twconnect">Conectar</button></span></p>
+			        			<h3></h3>
+			        		</div>
+			        	</div>
+			        	</div>		
+					 </div>
+		        	{{/if}}
+
+		        	<!-- Twitter END -->
+
+
+		   			<!-- Instagram -->
+
+		        	{{ # if datainstagram.screenname}}
+
+		        	<div class="col-xs-6 col-md-6">
+
+		        		<header class="chartbox title">
+
+		        			<h2>
+		        				<i class="fa fa-instagram"></i>  Instagram
+
+		        				{{ # if lastupdateinsta}}
+				        			<span>
+				        				Última Actualización: {{ lastupdateinsta }}
+				        			</span>
+				        		{{/if}}
+
+		        			</h2>
+
+		        		</header>
+
+		        		<div class="row">
+
+				        	<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome">Mi Perfil</h2>
+				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
+					        			<div class="interline col-xs-6 col-md-6">	
+						        			<span id="data-total-followers">
+						        				{{ datainstagram.profilestatistics.[0].qtyfollowers }}
+						        			</span>
+						        			<h3>Seguidores</h3>
+						        		</div>
+
+						        		<div class="interline col-xs-6 col-md-6">	
+						        			<span id="data-total-following">
+						        				{{ datainstagram.profilestatistics.[0].qtyfollowing }}
+						        			</span>
+						        			<h3>Seguidos</h3>
+						        		</div>
+				        			</p>
+				        		</div>
+				        	</div>
+
+				        	<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome">Mis Acciones</h2>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-heart sizelogo"></i> 
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datainstagram.profilestatistics.[0].qtylikes }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Likes</h3>
+			        				</div>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-retweet sizelogo"></i>
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					
+						        				{{ # if datainstagram.profilestatistics.[0].qtyretweets}}
+
+					        						{{ datainstagram.profilestatistics.[0].qtyretweets}}
+
+					        					{{else}}
+					        					
+					        						0
+
+					        					{{/if}}
+
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>RTs</h3>
+			        				</div>
+			        			</div>
+			        		</div>
+
+			        		<div class="col-xs-12 col-md-4">
+				        		<div class="chartbox sm single-number">
+				        		<h2 class="boxhome" style="font-size:16px;">Tipo de Contenido</h2>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-instagram sizelogo"></i> 
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ datainstagram.profilestatistics.[0].qtyfeeds }}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Posts</h3>
+			        				</div>
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><i class="fa fa-picture-o sizelogo"></i>
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					{{ # if datainstagram.profilestatistics.[0].images}}
+
+						        						{{ datainstagram.profilestatistics.[0].images}}
+
+						        					{{else}}
+						        					
+						        						0
+
+						        					{{/if}}
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Imagenes</h3>
+			        				</div>
+			        			</div>
+			        		</div>
+			        	</div>
+		        	</div>
+
+		        	{{ else }}
+
+					<div class="col-xs-6 col-md-6">
+
+        				<header class="chartbox title">
+
+		        			<h2>
+		        				<i class="fa fa-instagram"></i> Instagram
+		        			</h2>
+
+		        		</header>
+
+		        		<div class="row">
+				        	<div class="col-xs-12 col-md-12">
+				        		<div class="chartbox sm single-number">
+				        			<p><i class="fa fa-instagram" style="color: #000053;"></i> <span id="data-facebook-fans"><button type="submit" class="btn btn-default instaconnect">Conectar</button></span></p>
+				        			<h3></h3>
+				        		</div>
+				        	</div>
+			        	</div>		
+					 </div>
+
+					{{ /if }}
+
+		   			<!-- Instagram End-->
+
+
+
+			    </div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</template>

@@ -1,0 +1,108 @@
+<template name="_adminHeader">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="{{pathFor 'home'}}" class="logo logosup">
+            <!-- <b>Admin</b>LTE 2 -->
+            <img src="{{pathFor 'home'}}images/eglow.png" style="margin-left: 30px;">
+        </a>
+
+        <!-- <a class="navbar-brand logosup" href="http://agenciadev01.info/lab/digirep/front-business/index.php"></a> -->
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav navbar-top-links">
+                    {{#if currentUser}}
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-building"></i>
+                            <i class="caret"></i>
+                            <span class="hidden label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu menu">
+                            <li>
+                                <a href="#" data-action="logout" class="logout">
+                                        <!-- Support Team -->
+                                        <span><i class="fa fa-sign-out"></i>Salir</span>
+                                    <!-- <p>Why not buy a new awesome theme?</p> -->
+                                </a>
+                               <!--   <a href="#" data-action="logout" class="btn btn-default btn-flat logout">Salir</a> -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    {{else}}
+                    <a href="{{ pathFor 'login' }}" class="btn btn-default navbar-btn">Sign in</a>
+                    <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a> {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {{> _adminSidebar}}
+    
+</template>
+
+<template name="_adminSidebar">
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="navbar-default sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <h1 class="user-name colorgray" id="data-profile-name">Administración Eglow</h1>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu nav">
+                <!-- <li class="header">HEADER</li> -->
+                <!-- Optionally, you can add icons to the links -->
+                <li class="active"><a href="{{pathFor 'home'}}"><i class="fa fa-dashboard"></i><span>Inicio</span></a>
+                </li>
+                <li class="treeview ">
+                    <a href="#"><i class="fa fa-star"></i><span>Administracion</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu nav nav-second-level">
+                        <li><a href="{{ pathFor 'users' }}">Administrar Cuentas</a></li>
+                        <li><a href="#">Administrar Feeds</a></li>
+                        <li><a href="#">Administrar oportunidades</a></li>
+                        <li><a href="#">Administrar Feeds</a></li>
+                        <li><a href="#">Moderar mensajes</a></li>
+                        <li><a href="#">Mensajes de soporte</a></li>
+                        <li><a href="#">Facturacion</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="{{pathFor 'profilesadmin'}}"><i class="fa fa-user"></i><span>Perfiles</span></a>
+                </li>
+                <li class="active"><a href="{{pathFor 'campaignsadmin'}}"><i class="fa fa-share"></i><span>Campañas</span></a>
+                </li>
+                <li class="active"><a href="{{pathFor 'brandsadmin'}}"><i class="fa fa-star"></i><span>Marcas</span></a>
+                </li>
+            </ul>
+            <!-- /.sidebar-menu -->
+
+                    <!-- /.sidebar-collapse -->
+            <div class="clearfix"></div><!-- /.clearfix -->
+            <div class="sidebar-bottom hidden-xs">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img src="http://agenciadev01.info/lab/digirep/img/iso-small.png">
+                        <a href="https://www.facebook.com/digirepCL?fref=ts" target="_blank"><i class="fa fa-facebook-official fa-fw"></i></a>
+                        <a href="https://twitter.com/DigiRepCL" target="_blank"><i class="fa fa-twitter-square fa-fw"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-fw"></i></a>
+                        <a href="https://www.linkedin.com/company/digirep" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i></a>
+                    </div><!-- /.col-xs-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.sidebar-bottom -->
+
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</template>

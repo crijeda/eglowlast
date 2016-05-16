@@ -1,0 +1,52 @@
+body.loginBg{
+  background: url(images/bgeglow2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tw-login{
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    text-align: center;
+
+}
+.tw-login:hover { 
+    background-color: #0097e2;
+    font-size: 16px;
+    text-align: center;
+
+}
+.insta-login{
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    text-align: center;
+
+
+}
+.login{
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    color: white;
+}
+.login-btn{
+   font-size: 17px;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+.login-btn:hover{
+   font-size: 17px;
+   color:white;
+   background-color: rgba(0, 0, 0, 0.75);
+   /*border-color: #0073b7;*/
+}
+
+.login-box-body {
+
+	background-color: rgba(0, 0, 0, 0);
+    width: 150%;
+    margin-left: -25%;
+}

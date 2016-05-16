@@ -1,0 +1,553 @@
+<template name="myCommunitySection">
+
+	<section class="content statistics">
+
+		<div class="row header-title">
+
+			<div class="col-xs-4">
+               <h2 style="color:white;font-size:25px;">Mi Comunidad</h2> 
+           	</div>
+
+            <div class="col-xs-8">
+        		<div class="filterbox" style="margin-bottom: 0;">
+	        		<div class="row">
+
+	        			<div class="col-md-3 col-lg-3">
+	        				<div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </span>
+                                <input type="text" class="form-control" value="{{from}}" id="datepicker-from-community" disabled>
+                            </div>
+	        			</div>
+	        			<div class="col-md-3 col-lg-3">
+	        				<div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </span>
+                                <input type="text" class="form-control" value="{{to}}" id="datepicker-to-community" disabled>
+                            </div>
+	        			</div>
+	        			<div class="col-md-1">
+	        				<button class="btn btn-default update-date-btn connectCommunity " id="update-date-community" section-name="community">
+	        					Actualizar
+	        				</button>
+	        			</div>
+
+	        			<div class="col-md-3 col-md-offset-2 social-icons">
+                        	<a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab" class="community-networks" network="twitter">
+                        		<i style="color:white;" class="fa fa-twitter-square color"></i>
+                        	</a>
+                        	<a href="#instagram" aria-controls="instagram" role="tab" data-toggle="tab" class="community-networks" network="instagram">
+                        		<i style="color:white;" class="fa fa-instagram"></i>
+                        	</a>
+
+                        	<div class="clearfix"></div>
+
+	        			</div>
+
+	        		</div><!-- /.row -->
+	        	</div><!-- /.filterbox -->
+     		
+     		</div>
+
+     	</div>
+
+     	<div class="tab-content">
+			<div role="tabpanel" class="tab-pane {{activetw}}" id="twitter">
+				{{>twitterCommunity}}	
+			</div>
+
+			<div role="tabpanel" class="tab-pane {{activeinsta}}" id="instagram">
+				{{>instagramCommunity}}	
+			</div>
+		</div>
+
+    </section>
+
+</template>
+
+
+
+<template name="twitterCommunity">
+
+	<!-- TWITTER -->
+        <div class="row community-info" id="community-twitter">
+        	<div class="col-md-6 col-lg-3">
+        		<div class="row">
+		        	<div class="col-xs-12 stats-twitter">
+		        		<div class="row">
+		        			<div class="col-xs-12">
+		        				<h2>Twitter</h2><!-- /.social tw -->
+		        			</div><!-- /.col-xs-12 -->
+		        		</div><!-- /.row -->
+		        		<div class="row">
+				        	<div class="col-xs-12">
+				        		<div class="chartbox sm single-number">
+				        			<p><i class="fa fa-retweet"></i> <span id="data-community-retweets">{{ datatwitter.profilecommunity.[0].QtyRetweetsFromCommunity}}</span></p>
+				        			<h3>RTs</h3>
+				        		</div><!-- /.chartbox -->
+				        	</div><!-- /.col-xs-6 -->
+		        		</div><!-- /.row -->
+		        		<div class="row">
+				        	<div class="col-xs-12">
+				        		<div class="chartbox sm single-number">
+				        			<div class="row">
+				        				<div class="col-xs-6">
+						        			<p><i class="fa fa-twitter"></i> <span id="data-community-mentions">{{datatwitter.profilecommunity.[0].QtyMentionsFromCommunity}}</span></p>
+						        			<h3>Menciones</h3>
+				        				</div><!-- /.col-xs-6 -->
+				        				<div class="col-xs-6 mediabox">
+				        					<div class="row">
+				        						<div class="col-xs-12">
+				        							<p><i class="fa fa-picture-o"></i> <span id="data-community-images">{{datatwitter.profilecommunity.[0].ImagesFromCommunity}}</span></p>
+				        						</div><!-- /.col-xs-12 -->
+				        						<div class="col-xs-12">
+				        							<p><i class="fa fa-film"></i> <span id="data-community-videos">{{datatwitter.profilecommunity.[0].VideosFromCommunity}}</span></p>
+				        						</div><!-- /.col-xs-12 -->
+                                            </div><!-- /.row -->
+                                            
+				        					<div class="row">
+				        						<div class="col-xs-12">
+						        					<h3>Tipo de contenidos</h3>
+				        						</div><!-- /.col-xs-12 -->
+				        					</div><!-- /.row -->
+				        				</div><!-- /.col-xs-6 -->
+					        		</div><!-- /.row -->
+				        		</div><!-- /.chartbox -->
+				        	</div><!-- /.col-xs-6 -->
+		        		</div><!-- /.row -->
+		        	</div><!-- /.col-xs-4 -->
+        			
+        		</div><!-- /.row -->
+
+        	</div><!-- /.col-xs-4 -->
+
+
+            <div class="col-md-6 col-lg-4">
+        		<div class="row">
+        			<div class="col-xs-12">
+        				<h2>&nbsp;</h2><!-- /.social tw -->
+        			</div><!-- /.col-xs-12 -->
+        		</div><!-- /.row -->
+
+                <div class="chartbox profile interestbox interestbrands">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2>Top Marcas</h2>
+                        </div><!-- /.col-xs-12 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <div class="row" id="community-brands-cont">
+                            	<div class="col-xs-6"><p>1 - {{datatwitter.profilecommunity.[0].Top10Brands.[0].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>2 - {{datatwitter.profilecommunity.[0].Top10Brands.[1].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>3 - {{datatwitter.profilecommunity.[0].Top10Brands.[2].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>4 - {{datatwitter.profilecommunity.[0].Top10Brands.[3].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>5 - {{datatwitter.profilecommunity.[0].Top10Brands.[4].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>6 - {{datatwitter.profilecommunity.[0].Top10Brands.[5].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>7 - {{datatwitter.profilecommunity.[0].Top10Brands.[6].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>8 - {{datatwitter.profilecommunity.[0].Top10Brands.[7].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>9 - {{datatwitter.profilecommunity.[0].Top10Brands.[8].Marca}}</p></div>
+                            	<div class="col-xs-6"><p>10 - {{datatwitter.profilecommunity.[0].Top10Brands.[9].Marca}}</p></div>
+                            </div><!-- /.row -->
+                        </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.chartbox -->
+                <!-- /.panel -->
+            </div><!-- /.col-sm-4 -->
+
+            <div class="col-md-6 col-lg-5">
+        		<div class="row visible-lg">
+        			<div class="col-xs-12">
+        				<h2>&nbsp;</h2><!-- /.social tw -->
+        			</div><!-- /.col-xs-12 -->
+        		</div><!-- /.row -->
+
+                <div class="chartbox profile interestbox" id="top-hashtags-community">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 clas>Top Hashtags</h2>
+                        </div><!-- /.col-xs-12 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <div class="row" id="community-hashtags-cont">
+                            	<div class="col-xs-6"><p>1 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[0].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>2 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[1].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>3 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[2].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>4 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[3].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>5 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[4].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>6 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[5].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>7 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[6].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>8 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[7].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>9 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[8].Hashtag}}</p></div>
+                            	<div class="col-xs-6"><p>10 - {{datatwitter.profilecommunity.[0].Top10Hashtags.[9].Hashtag}}</p></div>
+                            </div><!-- /.row -->
+                        </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.chartbox -->
+                <!-- /.panel -->
+            </div><!-- /.col-sm-4 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="chartbox profile interestbox topfollowers2">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 clas>Top Followers</h2>
+                        </div><!-- /.col-xs-12 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+							<div class="row" id="community-top-followers-cont">
+								<div class="row">
+									<div class="col-xs-2">
+										<img src="{{datatwitter.profilecommunity.[0].TopTenFollowers.[0].profile_image_url}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+									</div>
+									<div class="col-xs-10">
+										<p><a href="https://twitter.com/{{datatwitter.profilecommunity.[0].TopTenFollowers.[0].screen_name}}" target="_blank">@{{datatwitter.profilecommunity.[0].TopTenFollowers.[0].screen_name}}</a></p>{{datatwitter.profilecommunity.[0].TopTenFollowers.[0].followers_count}} Followers<br>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-xs-2">
+										<img src="{{datatwitter.profilecommunity.[0].TopTenFollowers.[1].profile_image_url}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+									</div>
+									<div class="col-xs-10">
+										<p><a href="https://twitter.com/{{datatwitter.profilecommunity.[0].TopTenFollowers.[1].screen_name}}" target="_blank">@{{datatwitter.profilecommunity.[0].TopTenFollowers.[1].screen_name}}</a></p>{{datatwitter.profilecommunity.[0].TopTenFollowers.[1].followers_count}} Followers<br>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-xs-2">
+										<img src="{{datatwitter.profilecommunity.[0].TopTenFollowers.[2].profile_image_url}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+									</div>
+									<div class="col-xs-10">
+										<p><a href="https://twitter.com/{{datatwitter.profilecommunity.[0].TopTenFollowers.[2].screen_name}}" target="_blank">@{{datatwitter.profilecommunity.[0].TopTenFollowers.[2].screen_name}}</a></p>{{datatwitter.profilecommunity.[0].TopTenFollowers.[2].followers_count}} Followers<br>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-xs-2">
+										<img src="{{datatwitter.profilecommunity.[0].TopTenFollowers.[3].profile_image_url}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+									</div>
+									<div class="col-xs-10">
+										<p><a href="https://twitter.com/{{datatwitter.profilecommunity.[0].TopTenFollowers.[3].screen_name}}" target="_blank">@{{datatwitter.profilecommunity.[0].TopTenFollowers.[3].screen_name}}</a></p>{{datatwitter.profilecommunity.[0].TopTenFollowers.[3].followers_count}} Followers<br>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-xs-2">
+										<img src="{{datatwitter.profilecommunity.[0].TopTenFollowers.[4].profile_image_url}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+									</div>
+									<div class="col-xs-10">
+										<p><a href="https://twitter.com/{{datatwitter.profilecommunity.[0].TopTenFollowers.[4].screen_name}}" target="_blank">@{{datatwitter.profilecommunity.[0].TopTenFollowers.[4].screen_name}}</a></p>{{datatwitter.profilecommunity.[0].TopTenFollowers.[4].followers_count}} Followers<br>
+									</div>
+								</div>
+		                        <div class="row">
+		                            <div class="col-xs-12">
+		                                <!-- <a class="btn-premium" href="">Ver más</a> -->
+		                            </div><!-- /.col-xs-12 -->
+		                        </div><!-- /.row -->
+                            </div>                       
+                        </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.chartbox -->
+                <!-- /.panel -->
+            </div><!-- /.col-sm-6 -->
+
+        	<div class="col-md-12 col-lg-4">
+        		<div class="row">
+		        	<div class="col-xs-12 stats-twitter">
+		        		<div class="row">
+				        	<div class="col-xs-12">
+				        		<div class="chartbox sm single-number division-bar">
+				        			<p><i class="fa fa-male"></i> <span id="data-community-male">{{percentmale}}%</span> | <span id="data-community-female">{{percentfemale}}%</span> <i class="fa fa-female"></i></p>
+				        			<div class="progresscontainer">
+					        			<div class="progress progress-striped" id="data-male-percent" style="width: {{percentmale}}%;background: #009999;">
+	                                        <div class="" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+	                                    </div><div class="progress progress-striped" id="data-female-percent" style="width: {{percentfemale}}%;background: white;">
+	                                        <div class="" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+	                                    </div>
+				        			</div>
+				        			<h3>Distribución de género<br>*De acuerdo a una muestra de <b><span id="data-community-gendertotal">{{totalgender}}</span> (<span id="data-community-genderpercent">{{percentgender}}</span>%)</b> seguidores.</h3>
+				        		</div><!-- /.chartbox -->
+				        	</div><!-- /.col-xs-12 -->
+		        		</div><!-- /.row -->
+		        		<div class="row">
+				        	<div class="col-xs-12">
+				        		<div class="chartbox sm single-number professionbox">
+				        			<div class="row">
+				        				<!-- <div class="col-xs-6">
+						        			<h3>Profesiones</h3>
+				        				</div> -->
+				        				<div class="col-xs-12" id="data-community-professions">
+				        					<div class="row" style="height: 200px;">
+				        					{{> highchartsHelper chartId="pieProfesions" chartWidth="90%" charHeight="100%" chartObject=pieProfesions}}
+				        					</div>
+				        					<div class="row">
+				        						
+				        					</div>
+				        				</div><!-- /.col-xs-6 -->
+					        		</div><!-- /.row -->
+				        		</div><!-- /.chartbox -->
+				        	</div><!-- /.col-xs-6 -->
+		        		</div><!-- /.row -->
+		        	</div><!-- /.col-xs-4 -->
+        		</div><!-- /.row -->
+        	</div><!-- /.col-xs-4 -->
+
+			<div class="col-md-12 col-lg-4">
+                <div class="chartbox profile interestbox topfollowers2">
+                    <div class="row" style="margin-left: 15px;">
+                       
+                        {{> highchartsHelper chartId="location" chartWidth="90%" charHeight="100%" chartObject=pielocation}}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</template>
+
+
+
+<template name="instagramCommunity">
+
+	<!-- INSTAGRAM -->
+    <div class="row community-info" id="community-twitter">
+    	<div class="col-md-6 col-lg-3">
+    		<div class="row">
+	        	<div class="col-xs-12 stats-twitter">
+	        		<div class="row">
+	        			<div class="col-xs-12">
+	        				<h2>Instagram</h2><!-- /.social tw -->
+	        			</div><!-- /.col-xs-12 -->
+	        		</div><!-- /.row -->
+	        		<div class="row">
+			        	<div class="col-xs-12">
+			        		<div class="chartbox sm single-number">
+			        			<p><i class="fa fa-users"></i> <span id="data-community-retweets">{{ datainstagram.profileCommunity.[0].QtyFollowersFromCommunity}}</span></p>
+			        			<h3>Seguidores</h3>
+			        		</div><!-- /.chartbox -->
+			        	</div><!-- /.col-xs-6 -->
+	        		</div><!-- /.row -->
+	        		<div class="row">
+			        	<div class="col-xs-12">
+			        		<div class="chartbox sm single-number">
+			        			<div class="row">
+			        				<div class="col-xs-6">
+					        			<p><i class="fa fa-image"></i> <span id="data-community-mentions">{{datainstagram.profileCommunity.[0].ImagesFromCommunity}}</span></p>
+					        			<h3>Imagenes</h3>
+			        				</div><!-- /.col-xs-6 -->
+			        				<div class="col-xs-6 mediabox">
+			        					<div class="row">
+			        						<div class="col-xs-12">
+			        							<p><i class="fa fa-user"></i> <span id="data-community-images">{{datainstagram.profileCommunity.[0].QtyFollowingFromCommunity}}</span></p>
+			        						</div><!-- /.col-xs-12 -->
+			        						<div class="col-xs-12">
+			        							<p><i class="fa fa-comments"></i> <span id="data-community-videos">{{datainstagram.profileCommunity.[0].QtyFeedsFromCommunity}}</span></p>
+			        						</div><!-- /.col-xs-12 -->
+                                        </div><!-- /.row -->
+                                        
+			        					<div class="row">
+			        						<div class="col-xs-12">
+					        					<h3>Seguidos | Feeds</h3>
+			        						</div><!-- /.col-xs-12 -->
+			        					</div><!-- /.row -->
+			        				</div><!-- /.col-xs-6 -->
+				        		</div><!-- /.row -->
+			        		</div><!-- /.chartbox -->
+			        	</div><!-- /.col-xs-6 -->
+	        		</div><!-- /.row -->
+	        	</div><!-- /.col-xs-4 -->
+    			
+    		</div><!-- /.row -->
+
+    	</div><!-- /.col-xs-4 -->
+
+
+        <div class="col-md-6 col-lg-4">
+    		<div class="row">
+    			<div class="col-xs-12">
+    				<h2>&nbsp;</h2><!-- /.social tw -->
+    			</div><!-- /.col-xs-12 -->
+    		</div><!-- /.row -->
+
+            <div class="chartbox profile interestbox interestbrands">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>TOP HASHTAGS</h2>
+                    </div><!-- /.col-xs-12 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="row" id="community-brands-cont">
+                        	<div class="col-xs-6"><p>1 - {{datainstagram.profileCommunity.[0].Top10Brands.[0].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>2 - {{datainstagram.profileCommunity.[0].Top10Brands.[1].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>3 - {{datainstagram.profileCommunity.[0].Top10Brands.[2].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>4 - {{datainstagram.profileCommunity.[0].Top10Brands.[3].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>5 - {{datainstagram.profileCommunity.[0].Top10Brands.[4].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>6 - {{datainstagram.profileCommunity.[0].Top10Brands.[5].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>7 - {{datainstagram.profileCommunity.[0].Top10Brands.[6].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>8 - {{datainstagram.profileCommunity.[0].Top10Brands.[7].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>9 - {{datainstagram.profileCommunity.[0].Top10Brands.[8].Marca}}</p></div>
+                        	<div class="col-xs-6"><p>10 - {{datainstagram.profileCommunity.[0].Top10Brands.[9].Marca}}</p></div>
+                        </div><!-- /.row -->
+                    </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                </div><!-- /.row -->
+            </div><!-- /.chartbox -->
+            <!-- /.panel -->
+        </div><!-- /.col-sm-4 -->
+
+        <div class="col-md-6 col-lg-5">
+    		<div class="row visible-lg">
+    			<div class="col-xs-12">
+    				<h2>&nbsp;</h2><!-- /.social tw -->
+    			</div><!-- /.col-xs-12 -->
+    		</div><!-- /.row -->
+
+            <div class="chartbox profile interestbox" id="top-hashtags-community">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>TOP INTERESES</h2>
+                    </div><!-- /.col-xs-12 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="row" id="community-hashtags-cont">
+                        	<div class="col-xs-6"><p>1 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[0].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>2 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[1].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>3 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[2].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>4 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[3].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>5 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[4].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>6 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[5].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>7 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[6].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>8 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[7].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>9 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[8].Hashtag}}</p></div>
+                        	<div class="col-xs-6"><p>10 - {{datainstagram.profileCommunity.[0].Top10Hashtags.[9].Hashtag}}</p></div>
+                        </div><!-- /.row -->
+                    </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                </div><!-- /.row -->
+            </div><!-- /.chartbox -->
+            <!-- /.panel -->
+        </div><!-- /.col-sm-4 -->
+        <div class="col-md-6 col-lg-4">
+
+            <div class="chartbox profile interestbox topfollowers2">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Top Followers</h2>
+                    </div><!-- /.col-xs-12 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+						<div class="row" id="community-top-followers-cont">
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="{{datainstagram.profileCommunity.[0].TopTenFollowers.[0].profile_picture}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+								</div>
+								<div class="col-xs-10">
+									<p><a href="https://instagram.com/{{datainstagram.profileCommunity.[0].TopTenFollowers.[0].username}}" target="_blank">{{datainstagram.profileCommunity.[0].TopTenFollowers.[0].username}}</a></p>{{datainstagram.profileCommunity.[0].TopTenFollowers.[0].follows_count}} Followers<br>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="{{datainstagram.profileCommunity.[0].TopTenFollowers.[1].profile_picture}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+								</div>
+								<div class="col-xs-10">
+									<p><a href="https://instagram.com/{{datainstagram.profileCommunity.[0].TopTenFollowers.[1].username}}" target="_blank">{{datainstagram.profileCommunity.[0].TopTenFollowers.[1].username}}</a></p>{{datainstagram.profileCommunity.[0].TopTenFollowers.[1].follows_count}} Followers<br>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="{{datainstagram.profileCommunity.[0].TopTenFollowers.[2].profile_picture}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+								</div>
+								<div class="col-xs-10">
+									<p><a href="https://instagram.com/{{datainstagram.profileCommunity.[0].TopTenFollowers.[2].username}}" target="_blank">{{datainstagram.profileCommunity.[0].TopTenFollowers.[2].username}}</a></p>{{datainstagram.profileCommunity.[0].TopTenFollowers.[2].follows_count}} Followers<br>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="{{datainstagram.profileCommunity.[0].TopTenFollowers.[3].profile_picture}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+								</div>
+								<div class="col-xs-10">
+									<p><a href="https://instagram.com/{{datainstagram.profileCommunity.[0].TopTenFollowers.[3].username}}" target="_blank">{{datainstagram.profileCommunity.[0].TopTenFollowers.[3].username}}</a></p>{{datainstagram.profileCommunity.[0].TopTenFollowers.[3].follows_count}} Followers<br>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="{{datainstagram.profileCommunity.[0].TopTenFollowers.[4].profile_picture}}" onerror="this.src='images/usericon.png'" alt="" class="img-responsive">
+								</div>
+								<div class="col-xs-10">
+									<p><a href="https://instagram.com/{{datainstagram.profileCommunity.[0].TopTenFollowers.[4].username}}" target="_blank">{{datainstagram.profileCommunity.[0].TopTenFollowers.[4].username}}</a></p>{{datainstagram.profileCommunity.[0].TopTenFollowers.[4].follows_count}} Followers<br>
+								</div>
+							</div>
+	                        <div class="row">
+	                            <div class="col-xs-12">
+	                                <!-- <a class="btn-premium" href="">Ver más</a> -->
+	                            </div><!-- /.col-xs-12 -->
+	                        </div><!-- /.row -->
+                        </div>                       
+                    </div><!-- /.col-xs-8 col-xs-offset-2 -->
+
+                </div><!-- /.row -->
+            </div><!-- /.chartbox -->
+            <!-- /.panel -->
+        </div><!-- /.col-sm-6 -->
+        <div class="col-md-12 col-lg-8">
+    		<div class="row">
+	        	<div class="col-xs-12 stats-twitter">
+	        		<div class="row">
+			        	<div class="col-xs-12">
+			        		<div class="chartbox sm single-number division-bar">
+			        			<p><i class="fa fa-male"></i> <span id="data-community-male">{{datainstagram.profileCommunity.[0].GenderDistribution.[0].Male}}</span> | <span id="data-community-female">{{datainstagram.profileCommunity.[0].GenderDistribution.[0].Female}}</span> <i class="fa fa-female"></i></p>
+			        			<div class="progresscontainer">
+				        			<div class="progress progress-striped active" id="data-male-percent" style="width: {{percentmale}}%;">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                    </div><div class="progress progress-striped active" id="data-female-percent" style="width: {{percentfemale}}%;">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                    </div>
+			        			</div>
+			        			<h3>Distribución de género<br>*De acuerdo a una muestra de <b><span id="data-community-gendertotal">{{totalgender}}</span> (<span id="data-community-genderpercent">{{percentgender}}</span>%)</b> seguidores.</h3>
+			        		</div><!-- /.chartbox -->
+			        	</div><!-- /.col-xs-12 -->
+	        		</div><!-- /.row -->
+	        		<div class="row">
+			        	<div class="col-xs-12">
+			        		<div class="chartbox sm single-number professionbox">
+			        			<div class="row">
+			        				<div class="col-xs-6">
+					        			<h3>Profesiones</h3>
+			        				</div>
+			        				<div class="col-xs-6" id="data-community-professions">
+			        					<div class="row">
+			        						<div class="col-xs-7">
+			        							<p>{{datainstagram.profileCommunity.[0].Professions.[0].Profesion}}</p>
+			        						</div><!-- /.col-xs-7 -->
+			        						<div class="col-xs-4">
+			        							<p>{{datainstagram.profileCommunity.[0].Professions.[0].Qty}}</p>
+			        						</div><!-- /.col-xs-4 -->
+			        					</div>
+			        					<div class="row">
+			        						
+			        					</div>
+			        				</div><!-- /.col-xs-6 -->
+				        		</div><!-- /.row -->
+			        		</div><!-- /.chartbox -->
+			        	</div><!-- /.col-xs-6 -->
+	        		</div><!-- /.row -->
+	        	</div><!-- /.col-xs-4 -->
+    		</div><!-- /.row -->
+    	</div><!-- /.col-xs-4 -->
+    </div>
+
+</template>
