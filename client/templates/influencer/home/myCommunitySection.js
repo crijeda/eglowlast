@@ -337,7 +337,7 @@ Template.twitterCommunity.pielocation = function() {
         series: [{
             name: 'Personas',
             data: _.pluck(location,'Qty'),
-            color: '#009999'
+            color: '#4e7283'
         }]
 
     };
@@ -358,7 +358,7 @@ Template.twitterCommunity.pieProfesions = function() {
      data.push({
         name: professions[i].Profesion,
         y: professions[i].Qty,
-        color: '#009999',
+        color: '#4e7283',
     });
 
     }

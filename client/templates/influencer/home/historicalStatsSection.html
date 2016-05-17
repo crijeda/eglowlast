@@ -36,11 +36,11 @@
 
                        <div class="col-md-3 col-md-offset-2 social-icons">
                             <a href="#twitterhistoric" aria-controls="twitterhistoric" role="tab" data-toggle="tab" class="community-networks" network="twitterhistoric">
-                                <i style="color:white;" class="fa fa-twitter-square color"></i>
+                                <i class="fa fa-twitter circleicon coloricon"></i>
                             </a>
 
                             <a href="#instagramhistoric" aria-controls="instagramhistoric" role="tab" data-toggle="tab" class="community-networks" network="instagramhistoric">
-                                <i style="color:white;" class="fa fa-instagram"></i>
+                                <i class="fa fa-instagram circleicon coloricon"></i>
                             </a>
                            <div class="clearfix"></div>
 
@@ -110,16 +110,24 @@
                                                         <i class="fa fa-users sizelogo"></i> 
                                                         <div class="interline col-xs-6 col-md-6">   
                                                             <span id="data-historical-followers">
-                                                                {{datatwitter.profileHistorical.[0].HistoricalData.[0].followers_count}}
+                                                            <div class="circle">
+                                                            <div class="circlepad">
+                                                                {{deltafollowers}}
+                                                            </div>
+                                                            </div>
                                                             </span> 
                                                             <h3>Seguidores</h3>
                                                         </div>
 
                                                         <div class="interline col-xs-6 col-md-6">   
                                                             <span id="data-total-following">
-                                                                {{ datatwitter.profilestatistics.[0].qtyfollowing }}
+                                                            <div class="circle">
+                                                            <div class="circlepad">
+                                                                {{deltafriends}}
+                                                            </div>
+                                                            </div>
                                                             </span>
-                                                            <h3>Seguidos</h3>
+                                                            <h3>Amigos</h3>
                                                         </div>
 
                                                     </p>
@@ -174,10 +182,10 @@
 
                                                     <div class="col-xs-6 col-md-6">
                                                         <p class="sm">
-                                                        <i class="fa fa-list sizelogo"></i> 
+                                                        <i class="fa fa-eye sizelogo"></i> 
                                                             <div class="interline"> 
                                                                 <span id="data-total-tweets">
-                                                                    {{datatwitter.profileHistorical.[0].HistoricalData.[0].listed_count}}
+                                                                    {{reach}}
                                                                 </span>
                                                             </div>
                                                         </p>
@@ -185,10 +193,10 @@
                                                     </div><!-- /.col-xs-6 -->
 
                                                     <div class="col-xs-6 col-md-6">
-                                                        <p class="sm"><i class="fa fa-list sizelogo"></i> 
+                                                        <p class="sm"><i class="fa fa-thumbs-o-up sizelogo"></i> 
                                                             <div class="interline"> 
                                                                 <span id="data-total-tweets">
-                                                                    {{datatwitter.profileHistorical.[0].HistoricalData.[0].listed_count}}
+                                                                    {{engagement}}%
                                                                 </span>
                                                             </div>
                                                         </p>
@@ -213,15 +221,14 @@
 
                                                 <div class="chartbox sm single-number day-time">
                                                     <div class="row">
-                                                        <div class="col-xs-4">
-                                                            <p class="icon"><i class="fa fa-calendar"></i></p>
-                                                        </div><!-- /.col-xs-4 -->
-                                                        <div class="col-xs-8">
+                                                    <div class="titlebestday">Mejor día para publicar</div>
+                                                        <div class="col-xs-12">
+                                                            <p class="icon"><i class="fa fa-calendar"></i>
+                                                            </p>
                                                             <p id="data-historical-bestday">
                                                                 {{day}}
                                                             </p>
-                                                            <h3>Mejor día <br> para publicar</h3>
-                                                        </div><!-- /.col-xs-8 -->
+                                                        </div><!-- /.col-xs-4 -->
                                                     </div>
                                                 </div><!-- /.chartbox -->
                                                 
@@ -231,15 +238,14 @@
 
                                                 <div class="chartbox sm single-number day-time">
                                                     <div class="row">
-                                                        <div class="col-xs-4">
-                                                            <p class="icon"><i class="fa fa-clock-o"></i></p>
-                                                        </div><!-- /.col-xs-4 -->
-                                                        <div class="col-xs-8">
-                                                            <p id="data-historical-besthour">
-                                                                {{hour}} hrs.
+                                                    <div class="titlebestday">Mejor hora para publicar</div>
+                                                        <div class="col-xs-12">
+                                                            <p class="icon"><i class="fa fa-clock-o"></i>
                                                             </p>
-                                                            <h3>Mejor hora <br> para publicar</h3>
-                                                        </div><!-- /.col-xs-8 -->
+                                                            <p id="data-historical-bestday">
+                                                                {{hour}} h
+                                                            </p>
+                                                        </div><!-- /.col-xs-4 -->
                                                     </div>
                                                 </div><!-- /.chartbox -->
                                                 
@@ -271,156 +277,73 @@
 
                         {{> highchartsHelper chartId="wctw" chartWidth="100%" charHeight="50%" chartObject=wctw }}    
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="chartbox profile interestbox">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h2>Top Hashtags</h2>
-                                </div><!-- /.col-xs-12 -->
-                            </div>
-                            <div class="row hidden">
-                                <div class="col-xs-10 col-xs-offset-1">
-                                    <div class="row" id="historical-hashtags-cont">
-                                        
-                                        <div class="col-xs-6"><p>1 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>2 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>3 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>4 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>5 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>6 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>7 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>8 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>9 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p></div>
-                                        <div class="col-xs-6"><p>10 - {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p></div>
-                                       
-                                    </div>
-                                </div><!-- /.col-xs-8 col-xs-offset-2 -->
-                            </div>
+                    <div class="col-xs-6 col-md-6">
+            
+                    <div class="chartbox top-list" style="padding-bottom: 7px;height: 192px;">
+                        <h2 class="text-center">
+                            <i class="fa fa-hashtag"></i>
+                            Top Hashtags
+                        </h2>
 
+                        <div class="col-md-6">
+                            
+                            <p style="background:rgba(255,255,255,0.1) !important;">1 {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;">2 {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;">3 {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;">4 {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;">5 {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p>
 
-                            <!-- New TOPHashtags -->
+                        </div>
+                        <div class="col-md-6">
+                            
+                            <p style="background:rgba(255,255,255,0.2) !important;">6 {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;">7 {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;">8 {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;">9 {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;">10 {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p>
 
-                            <div class="">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                    <div class="col-xs-6 col-md-6">
+            
+                        <div class="chartbox top-list" style="height: 192px;">
+                            <h2 class="text-center">
+                                <i class="fa fa-list-ul"></i>
+                                Top Marcas
+                            </h2>
+
+                            <ul>
                                 
-                                <ul class="top-list">
-                                    <li>
-                                        <span class="number">
-                                            1 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            2 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            3 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            4 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            5 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            6 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            7 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            8 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            9 
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="number">
-                                            10
-                                        </span>
-                                        <span>
-                                            {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}
-                                        </span>
-                                    </li>
-                                </ul>
-                                    
-                            </div>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    {{datatwitter.profileHistorical.[0].Top10Brands.[0].Marca}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    {{datatwitter.profileHistorical.[0].Top10Brands.[1].Marca}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    {{datatwitter.profileHistorical.[0].Top10Brands.[2].Marca}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    {{datatwitter.profileHistorical.[0].Top10Brands.[3].Marca}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    {{datatwitter.profileHistorical.[0].Top10Brands.[4].Marca}}
+                                </li>
 
+                            </ul>
 
-                        </div><!-- /.chartbox -->
-                        <!-- /.panel -->
-                    </div><!-- /.col-sm-6 -->
+                        </div>
 
-                    <div class="col-md-4 col-lg-8">
-                        <div class="chartbox profile interestbox interestbrands">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h2 class="">Top Marcas</h2>
-                                </div><!-- /.col-xs-12 -->
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-10 col-xs-offset-1">
-                                    <div class="row" id="historical-brands-cont">
-                                   
-                                            <div class="col-xs-6"><p>1 - {{datatwitter.profileHistorical.[0].Top10Brands.[0].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>2 - {{datatwitter.profileHistorical.[0].Top10Brands.[1].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>3 - {{datatwitter.profileHistorical.[0].Top10Brands.[2].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>4 - {{datatwitter.profileHistorical.[0].Top10Brands.[3].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>5 - {{datatwitter.profileHistorical.[0].Top10Brands.[4].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>6 - {{datatwitter.profileHistorical.[0].Top10Brands.[5].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>7 - {{datatwitter.profileHistorical.[0].Top10Brands.[6].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>8 - {{datatwitter.profileHistorical.[0].Top10Brands.[7].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>9 - {{datatwitter.profileHistorical.[0].Top10Brands.[8].Marca}}</p></div>
-                                            <div class="col-xs-6"><p>10 - {{datatwitter.profileHistorical.[0].Top10Brands.[9].Marca}}</p></div>
-                                       
-                                    </div>
-                                </div><!-- /.col-xs-8 col-xs-offset-2 -->
-
-                            </div>
-                        </div><!-- /.chartbox -->
-                        <!-- /.panel -->
-                    </div><!-- /.col-sm-6 -->
+                    </div>
 
                 </div>
             </div>

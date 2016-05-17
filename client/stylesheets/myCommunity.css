@@ -1,0 +1,61 @@
+.my-community .row .col-md-6 { padding-left: 2px; padding-right: 2px; }
+
+.my-community .row .col-md-6:first-child{ padding-left: 15px; }
+
+.my-community .row .col-md-6:last-child{ padding-right: 15px; }
+
+
+.my-community .chartbox.top-list{
+	margin-top: 15px;
+	height: inherit;
+	padding: 2px;
+	padding-bottom: 15px;
+	overflow: hidden;
+}
+
+.my-community .chartbox.top-list p{
+	padding-left: 15px
+}
+
+.my-community .top-list .col-md-6{ padding-left: 2px; padding-right: 2px; }
+.my-community .top-list .col-md-6:first-child{ padding-left: 15px; }
+.my-community .top-list .col-md-6:last-child{ padding-right: 15px; }
+
+
+
+.my-community .chartbox ul{
+	padding: 0;
+}
+
+.my-community .chartbox ul li{
+	list-style: none;
+	background: rgba(255,255,255,0.1);
+	margin: 5px 15px;
+	padding-left: 10px;
+	border-radius: 10px;
+	line-height: 22px;
+}
+
+.my-community .retweets .fa-retweet{
+	font-size: 60px;
+	margin-top: 30px;
+	margin-left: 20px;
+
+}
+
+.my-community .retweets .fa-comment{
+	font-size: 100px;
+}
+
+.my-community .media-content{
+	padding-left: 15px;
+}
+
+.my-community .media-content p{
+	margin:0 5px;
+	font-size: 13px;
+}
+
+.my-community .media-content p b{
+	font-size: 20px;
+}

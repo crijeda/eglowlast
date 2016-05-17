@@ -1,7 +1,7 @@
 .circle{
 	border: solid;
     border-color: #4e7283;
-    width: 80px;
+    /*width: 80px;*/
     height: 80px;
     background-color: #96aab2;
     -webkit-border-radius: 50px;
@@ -62,7 +62,10 @@ width: 100% !important
 
 	color: #000053;
 }
-
+.titlebestday{
+	text-align:center; 
+	padding-top:5px;
+}
 h1.gradientbg {
 	background: #000053; /* Old browsers */
 	background: -moz-linear-gradient(left,  #000053 0%, #d8d8d8 100%); /* FF3.6+ */
@@ -185,8 +188,9 @@ h3.gradientbg {
 }
 
 	.logosup img {
-		width: auto;
-		max-height: 40px;
+		width: 180px;
+   		 height: 70px;
+   		 padding-left: 25px;
 	}
 
 .navbar-top-links a { /*_appHeader.html*/
@@ -642,9 +646,9 @@ article.wrapper-article {
 .chartbox.day-time {}
 
 	.chartbox.day-time p {
-		text-align: left;
+		text-align: center;
 		font-size: 30px;
-		margin-top: 35px;
+		margin-top: -3px;
 	}
 
 	.chartbox.day-time h3 {
@@ -653,7 +657,7 @@ article.wrapper-article {
 
 	.chartbox.day-time p.icon {
 		text-align: center;
-		margin-top: 40px;
+		margin-top: 25px;
 	}
 
 	 .chartbox.day-time p.icon i {

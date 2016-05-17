@@ -52,6 +52,76 @@ Template.historicalStatsSection.helpers({
         var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
         return datatwitter[0]
     },
+    deltafollowers: function () {
+
+        var profile = Profile.find({userId:Meteor.userId()}).fetch();
+        var screenname = Meteor.user().services.twitter.screenName;
+        var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+        var historicaldata = datatwitter[0].profileHistorical[0].HistoricalData;
+        var len = historicaldata.length-1;
+        var first = historicaldata[0].followers_count;
+        var last = historicaldata[len].followers_count;
+        var delta = last - first;
+        if (delta<0){
+        return  delta  
+        }
+        else{
+        return "+"+delta
+        }
+        
+    },
+    deltafriends: function () {
+
+        var profile = Profile.find({userId:Meteor.userId()}).fetch();
+        var screenname = Meteor.user().services.twitter.screenName;
+        var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+        var historicaldata = datatwitter[0].profileHistorical[0].HistoricalData;
+        var len = historicaldata.length-1;
+        var first = historicaldata[0].friends_count;
+        var last = historicaldata[len].friends_count;
+        var delta = last - first;
+        if (delta<0){
+        return  delta  
+        }
+        else{
+        return "+"+delta
+        }
+        
+    },
+      reach: function () {
+
+        var profile = Profile.find({userId:Meteor.userId()}).fetch();
+        var screenname = Meteor.user().services.twitter.screenName;
+        var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+        var lasttweets = datatwitter[0].profileHistorical[0].LastTweets;
+        var len = lasttweets.length-1;
+        var sum = 0;
+        for (i = 0; i < len; i++) { 
+          sum += lasttweets[i].Reach;  
+        };
+
+        var avg = sum/len;
+        return Math.round(avg, 0)
+        
+    },
+     engagement: function () {
+
+        var profile = Profile.find({userId:Meteor.userId()}).fetch();
+        var screenname = Meteor.user().services.twitter.screenName;
+        var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+        var lasttweets = datatwitter[0].profileHistorical[0].LastTweets;
+        var len = lasttweets.length-1;
+        var sum = 0;
+        for (i = 0; i < len; i++) { 
+          sum += lasttweets[i].Reach;  
+        };
+
+        var avg = sum/len;
+        var followers = datatwitter[0].profilestatistics[0].qtyfollowers;
+        var eng = (followers/avg);
+        return Math.round(eng * 100)
+        
+    },
     day: function () {
 
         var profile = Profile.find({userId:Meteor.userId()}).fetch();
@@ -420,7 +490,7 @@ Template.historicalStatsSection.wctw = function() {
      data.push({
         name: wordcloud[i]._word,
         y: wordcloud[i]._count,
-        color: '#009999'
+        color: '#4e7283'
     });
 
     }
@@ -474,7 +544,7 @@ Template.historicalStatsSection.wcinsta = function() {
      data.push({
         name: wordcloud[i]._word,
         y: wordcloud[i]._count,
-        color: '#009999'
+        color: '#4e7283'
     });
 
     }
@@ -518,40 +588,94 @@ Template.historicalStatsSection.wcinsta = function() {
 
 Template.historicalStatsSection.twline = function() {
 
-       var data = new Array();
-         var screenname = Meteor.user().services.twitter.screenName;
-         var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
-         var historicaldata = datatwitter[0].profileHistorical[0].HistoricalData;
-         // 'external' data
-         var len = historicaldata.length;
-     
-    for (i = 0; i < len; i++) { 
+    var data = new Array();
+    var data2 = new Array();
+    var data3 = new Array();
+    var screenname = Meteor.user().services.twitter.screenName;
+    var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+    var historicaldata = datatwitter[0].profileHistorical[0].HistoricalData;
+    var len = historicaldata.length;
+
+
+    var lasttweets = datatwitter[0].profileHistorical[0].LastTweets;
+
+    var len2 = lasttweets.length-1;
+
+    response2Dates = _.pluck(lasttweets,'createdAt')
+
+    reachDates = _.map(response2Dates,function(e){
+    return e.substring(8, 10) + "/" + e.substring(5, 7) + "/" +  e.substring(0, 4)
+    })
+
+
+     data3.push({
+        reach: _.pluck(lasttweets,'Reach'),
+        date:reachDates
+     });
+
+    responseDates = _.pluck(historicaldata,'Date')
+
+    xAxisDates = _.map(responseDates,function(e){
+    return e.substring(8, 10) + "/" + e.substring(5, 7) + "/" +  e.substring(0, 4)
+    })
      data.push({
-        favorites_count: historicaldata[i].favorites_count,
-        followers_count: historicaldata[i].followers_count,
-        date:historicaldata[i].Date
+        favorites_count: _.pluck(historicaldata,'followers_count'),
+        followers_count: _.pluck(historicaldata,'favorites_count'),
+        date:xAxisDates
     });
+    for (i = 0; i < len; i++) { 
+    if(data[0].date[i]!=data[0].date[i-1] | i==0 ){
+
+        if(_.indexOf(reachDates, data[0].date[i])>0){
+            data2.push({
+            favorites_count: data[0].favorites_count[i],
+            followers_count:data[0].followers_count[i] ,
+            reach: data[0].followers_count[i]+ data3[0].reach[_.indexOf(reachDates, data[0].date[i])],
+            date:data[0].date[i]
+            })
+
+        }else{
+            data2.push({
+            favorites_count: data[0].favorites_count[i],
+            followers_count:data[0].followers_count[i] ,
+            reach: data[0].followers_count[i],
+            date:data[0].date[i]
+            })
+
+        }
+     
+
+    };
+
     }
+
+    // _.uniq(data[0].date)
     
     dataSeries = [
             {
                 name: 'Followers',
                 color: '#000053',
                 // data: [12, 15, 25, 27, 10, 6, 5]
-                data: _.pluck(historicaldata,'followers_count')
+                data: _.pluck(data2,'followers_count')
+
+            },{
+                name: 'Reach',
+                color: 'white',
+                // data: [12, 15, 25, 27, 10, 6, 5]
+                data: _.pluck(data2,'reach')
 
             }, {
                 name: 'Favorites',
-                color: '#009999',
-                data: _.pluck(historicaldata,'favorites_count')
+                color: '#4e7283',
+                data: _.pluck(data2,'favorites_count')
             }
         ];
 
-    responseDates = _.pluck(historicaldata,'Date')
+    // responseDates = _.pluck(historicaldata,'Date')
 
-    xAxisDates = _.map(responseDates,function(e){
-        return e.substring(8, 10) + "/" + e.substring(5, 7) + "/" +  e.substring(0, 4)
-    })
+    // xAxisDates = _.map(responseDates,function(e){
+    //     return e.substring(8, 10) + "/" + e.substring(5, 7) + "/" +  e.substring(0, 4)
+    // })
 
     return {
        
@@ -567,7 +691,7 @@ Template.historicalStatsSection.twline = function() {
             x: -20
         },
         xAxis: {
-            categories: xAxisDates,
+            categories: _.pluck(data2,'date'),
             gridLineWidth: 0,
         },
         yAxis: {
