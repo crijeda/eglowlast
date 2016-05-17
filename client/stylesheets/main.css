@@ -1,4 +1,42 @@
+.circle{
+	border: solid;
+    border-color: #4e7283;
+    width: 80px;
+    height: 80px;
+    background-color: #96aab2;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50%;
+    margin-top: -40px;
+}
 
+.coloricon{
+	color:#484848;
+}
+
+.circleicon{
+    padding-left: 7px;
+    padding-top: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #73c5d5;
+    -webkit-border-radius: 50px
+}
+.circleiconoff{
+    padding-left: 7px;
+    padding-top: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #608392;
+    -webkit-border-radius: 50px
+}
+
+
+.circlepad{
+	padding-top:23px;
+	font-weight: bold;
+    color: #010551;
+}
 
 .boxhome{
 	margin: 20px;
@@ -87,10 +125,10 @@ h3.gradientbg {
 	color: #000053;
 }
 .btn-default{
-	background: #009999;
+	background: #4e7283;
     border-radius: 10px;
     color: white;
-    border-color: #009999;
+    border-color: #4e7283;
 }
 
 #wrapper { /*publicLayout.html*/
@@ -563,7 +601,7 @@ article.wrapper-article {
 
 	.chartbox.single-number i {
 		font-size: 30px;
-		color: #009999;
+		color: #4e7283;
 		display: block;
 		margin-bottom: 10px;
 	}
@@ -669,8 +707,9 @@ article.wrapper-article {
 
 .statistics h2 {
 	margin-top: 10px;
-	margin-left: 5px;
+	margin-left: 15px;
 	font-size: 25px
+
 }
 
 .statistics .title-social{margin: 15px;margin-bottom: 5px;}
@@ -689,11 +728,11 @@ article.wrapper-article {
 }
 
 .statistics .chartbox h3{
-	font-size: 10px;
+	font-size: 12px;
 	color:white;
 }
 
-.statistics .chartbox .fa{color: #009999 !important;}
+.statistics .chartbox .fa{color: #4e7283 !important;}
 
 .statistics .header-title{
 	background:rgba(255,255,255,0.1);
@@ -702,7 +741,12 @@ article.wrapper-article {
 	margin-right:0;
 }
 
-.statistics .header-title h2{color:white;}
+.statistics .header-title h2{
+	padding-top: 8px;
+	margin-left: 5px;
+    color: white;
+    font-size: 30px;
+}
 
 .statistics .header-title .social-icons{padding: 15px;color:white;}
 

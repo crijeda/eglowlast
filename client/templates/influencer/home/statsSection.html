@@ -16,19 +16,19 @@
         				<span class="pull-right">
 
 							{{  # if user.services.twitter.screenName }}
-								<i class="fa fa-twitter-square color" style="color: #009999;"></i>
+								<i class="fa fa-twitter circleicon coloricon"></i>
 							{{ else }}
-								<i class="fa fa-twitter-square color"></i>
+								<i class="fa fa-twitter color"></i>
 							{{ /if }}
 
 							{{ # if user.services.instagram }}
-								<i class="fa fa-instagram" style="color: #009999;"></i>
+								<i class="fa fa-instagram circleicon coloricon"></i>
 							{{ else }}
 								<i class="fa fa-instagram"></i>
 							{{ /if }}
 
-							<i class="fa fa-facebook-official color"></i>
-							<i class="fa fa-linkedin-square"></i>
+							<i class="fa fa-facebook circleiconoff coloricon"></i>
+							<i class="fa fa-linkedin circleiconoff coloricon"></i>
 						</span>
 
         			</div>
@@ -60,19 +60,27 @@
 
 		        		<div class="row">
 				        	<div class="col-xs-12 col-md-4">
-				        		<div class="chartbox sm single-number">
+				        		<div class="chartbox sm single-number" data-toggle="tooltip" data-placement="top" title="Cantidad de Seguidores que tienes y gente que sigues desde que abriste tu cuenta en Twitter.">
 				        		<h2 class="boxhome">Mi Perfil</h2>
 				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
 					        			<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-followers">
+						        			<div class="circle">
+						        			<div class="circlepad">
 						        				{{ datatwitter.profilestatistics.[0].qtyfollowers }}
+						        			</div>
+						        			</div>
 						        			</span>
 						        			<h3>Seguidores</h3>
 						        		</div>
 
 						        		<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-following">
+						        			<div class="circle">
+						        			<div class="circlepad">
 						        				{{ datatwitter.profilestatistics.[0].qtyfollowing }}
+						        			</div>
+						        			</div>
 						        			</span>
 						        			<h3>Seguidos</h3>
 						        		</div>
@@ -196,14 +204,22 @@
 				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
 					        			<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-followers">
+						        			<div class="circle">
+						        			<div class="circlepad">
 						        				{{ datainstagram.profilestatistics.[0].qtyfollowers }}
+						        			</div>
+						        			</div>
 						        			</span>
 						        			<h3>Seguidores</h3>
 						        		</div>
 
 						        		<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-following">
+						        			<div class="circle">
+						        			<div class="circlepad">
 						        				{{ datainstagram.profilestatistics.[0].qtyfollowing }}
+						        			</div>
+						        			</div>
 						        			</span>
 						        			<h3>Seguidos</h3>
 						        		</div>

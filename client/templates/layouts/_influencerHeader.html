@@ -246,31 +246,30 @@
 
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
-                <h1 class="user-name colorgray" id="data-profile-name">
-                {{# if profile.firstname}}
-                {{ profile.firstname }} {{ profile.lastname }}
-                {{else}}
-                {{ user.username }} 
-                {{/if}}
-                </h1>
                 <!-- <br> -->
                <div class="user-avatar-box">
 
                         {{# if profileimage}}
-                        <img src="{{ profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;">
+                        <img src="{{ profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;border-radius: 50%;">
                         {{ else }}
-                        <img src="{{ datainstagram.profilestatistics.[0].profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;">
+                        <img src="{{ datainstagram.profilestatistics.[0].profileimage }}" class="img-responsive user-avatar" alt="" id="data-profile-picture" style="border: solid; border-width: 8px;border-radius: 50%;">
                         {{/if}}
-
+                        <h1 class="user-name colorgray" id="data-profile-name">
+                        {{# if profile.firstname}}
+                        {{ profile.firstname }} {{ profile.lastname }}
+                        {{else}}
+                        {{ user.username }} 
+                        {{/if}}
+                        </h1>
                 </div>
+
                 <div class="col-xs-12 col-md-12">
                     <!-- <h2 class="points" id="data-user-points">99 Pts.</h2> -->
                     <p class="interests" id="data-profile-bio">
                     {{ # if profile.bio}}
                     {{ profile.bio }}
                     {{else}}
-                    {{ datatwitter.profilestatistics.[0].profilebio }} 
-                    {{ datainstagram.profilestatistics.[0].profilebio }} 
+                    {{ user.services.instagram.bio }} 
                     {{/if}}
                     </p>
                 </div><!-- /.col-xs-12 -->
