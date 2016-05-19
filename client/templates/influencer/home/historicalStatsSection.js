@@ -70,15 +70,15 @@ Template.historicalStatsSection.helpers({
         }
         
     },
-    deltafriends: function () {
+    deltafollowing: function () {
 
         var profile = Profile.find({userId:Meteor.userId()}).fetch();
         var screenname = Meteor.user().services.twitter.screenName;
         var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
         var historicaldata = datatwitter[0].profileHistorical[0].HistoricalData;
         var len = historicaldata.length-1;
-        var first = historicaldata[0].friends_count;
-        var last = historicaldata[len].friends_count;
+        var first = historicaldata[0].following_count;
+        var last = historicaldata[len].following_count;
         var delta = last - first;
         if (delta<0){
         return  delta  
@@ -118,8 +118,8 @@ Template.historicalStatsSection.helpers({
 
         var avg = sum/len;
         var followers = datatwitter[0].profilestatistics[0].qtyfollowers;
-        var eng = (followers/avg);
-        return Math.round(eng * 100)
+        var eng = (avg/followers)-1;
+        return Math.round(eng*100)/100
         
     },
     day: function () {
@@ -250,115 +250,59 @@ Template.historicalStatsSection.helpers({
 
 
 Template.wordcloudtw.rendered = function() {
-    $(document).ready(function(){ 
 
-        var tags = new Array();
-        var screenname = Meteor.user().services.twitter.screenName;
-        var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
-        var wordcloud = datatwitter[0].profileHistorical[0].WordCloud;
-        // 'external' data
-        var len = wordcloud.length;
-         
-        for (i = 0; i < len; i++) { 
-            tags.push({
-                key: wordcloud[i]._word,
-                value: wordcloud[i]._count
-            });
-        }
+         var data = new Array();
+         var screenname = Meteor.user().services.twitter.screenName;
+         var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
+         var wordcloud = datatwitter[0].profileHistorical[0].WordCloud;
+         // 'external' data
+         var len = wordcloud.length;
+     
+    for (i = 0; i < len; i++) { 
+     data.push({
+        text: wordcloud[i]._word,
+        size: wordcloud[i]._count,
+        color: '#4e7283'
+    });
 
-        // console.log(tags)
+    }
+        var frequency_list = data;
 
-        var fill = d3.scale.category20b();
 
-        //var w = window.innerWidth*0.8
-        var w = $('.wordcloudTwDiv').width()
-        var h = 200;
+            var color = d3.scale.linear()
+                        .domain([0,1,2,3,4,5,6,10,15,20,100])
+                        .range(["#0c0337", "#0c0337", "#0c0337", "#647f8a", "#647f8a", "#647f8a", "#bbb", "#bbb", "#bbb", "#aaa", "#aaa", "#aaa"]);
+            d3.layout.cloud().size([800, 300])
+                        .words(frequency_list)
+                        .padding(15)
+                        .rotate(function() {
+                            return ~~(Math.random() * 2) * 90;
+                        })
+                        .rotate(0)
+                        .fontSize(function(d) { return d.size*15; })
+                        .on("end", draw)
+                        .start();
 
-        var max, fontSize;
-            
-        var layout = d3.layout.cloud()
-            .timeInterval(Infinity)
-            .size([w, h])
-            .fontSize(function(d) {
-                return fontSize(+d.value);
-            })
-            .text(function(d) {
-                return d.key;
-            })
-            .on("end", draw);
-
-        var svg = d3.select("#my_canvas").append("svg")
-            .attr("width", w)
-            .attr("height", h);
-
-        var vis = svg.append("g").attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
-
-        update();
-
-        window.onresize = function(event) {
-            update();
-        };
-
-        function draw(data, bounds) {
-            var w = $('.wordcloudTwDiv').width()
-                h = 200;
-
-            svg.attr("width", w).attr("height", h);
-
-            scale = bounds ? Math.min(
-                w / Math.abs(bounds[1].x - w / 2),
-                w / Math.abs(bounds[0].x - w / 2),
-                h / Math.abs(bounds[1].y - h / 2),
-                h / Math.abs(bounds[0].y - h / 2)) / 2 : 1;
-
-            var text = vis.selectAll("text")
-                .data(data, function(d) {
-                    return d.text.toLowerCase();
-                });
-            text.transition()
-                .duration(1000)
-                .attr("transform", function(d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .style("font-size", function(d) {
-                    return d.size + "px";
-                });
-            text.enter().append("text")
-                .attr("text-anchor", "middle")
-                .attr("transform", function(d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .style("font-size", function(d) {
-                    return d.size + "px";
-                })
-                //.style("opacity", 1e-6)
-                .transition()
-                .duration(1000)
-                .style("opacity", 1);
-            text.style("font-family", function(d) {
-                return d.font;
-            })
-                .style("fill", function(d) {
-                    return fill(d.text.toLowerCase());
-                })
-                .text(function(d) {
-                    return d.text;
-                });
-
-            vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
-        }
-
-        function update() {
-            layout.font('impact').spiral('archimedean');
-            fontSize = d3.scale['sqrt']().range([10, 100]);
-            if (tags.length){
-                fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]);
+            function draw(words) {
+                d3.select("#my_canvas").append("svg")
+                        .attr("width", 1050)
+                        .attr("height", 350)
+                        .attr("class", "wordcloud")
+                        .append("g")
+                        // without the transform, words words would get cutoff to the left and top, they would
+                        // appear outside of the SVG area
+                        .attr("transform", "translate(600,150)")
+                        .selectAll("text")
+                        .data(words)
+                        .enter().append("text")
+                        .style("font-weight", function(d) { return "bold"; })
+                        .style("font-size", function(d) { return d.size + "px"; })
+                        .style("fill", function(d, i) { return color(i); })
+                        .attr("transform", function(d) {
+                            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                        })
+                        .text(function(d) { return d.text; });
             }
-            layout.stop().words(tags).start();
-        }
-
-
-    }, false);
 
 };
 
@@ -654,7 +598,7 @@ Template.historicalStatsSection.twline = function() {
     dataSeries = [
             {
                 name: 'Followers',
-                color: '#000053',
+                color: '#4e7283',
                 // data: [12, 15, 25, 27, 10, 6, 5]
                 data: _.pluck(data2,'followers_count')
 
@@ -664,11 +608,13 @@ Template.historicalStatsSection.twline = function() {
                 // data: [12, 15, 25, 27, 10, 6, 5]
                 data: _.pluck(data2,'reach')
 
-            }, {
-                name: 'Favorites',
-                color: '#4e7283',
-                data: _.pluck(data2,'favorites_count')
-            }
+            }, 
+
+            // {
+            //     name: 'Favorites',
+            //     color: '#4e7283',
+            //     data: _.pluck(data2,'favorites_count')
+            // }
         ];
 
     // responseDates = _.pluck(historicaldata,'Date')

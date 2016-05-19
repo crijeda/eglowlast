@@ -354,12 +354,21 @@ Template.twitterCommunity.pieProfesions = function() {
         var data = new Array();
      var len = professions.length;
      
-    for (i = 0; i < len; i++) { 
-     data.push({
+    for (i = 0; i < len; i++) {
+    if (i % 2 == 1){
+         data.push({
         name: professions[i].Profesion,
         y: professions[i].Qty,
-        color: '#4e7283',
-    });
+        color: '#557080',
+        }); 
+    }else{
+        data.push({
+        name: professions[i].Profesion,
+        y: professions[i].Qty,
+        color: '#898592',
+        });    
+    }
+   
 
     }
 

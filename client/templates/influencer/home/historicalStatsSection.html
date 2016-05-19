@@ -123,11 +123,11 @@
                                                             <span id="data-total-following">
                                                             <div class="circle">
                                                             <div class="circlepad">
-                                                                {{deltafriends}}
+                                                                {{deltafollowing}}
                                                             </div>
                                                             </div>
                                                             </span>
-                                                            <h3>Amigos</h3>
+                                                            <h3>Seguidos</h3>
                                                         </div>
 
                                                     </p>
@@ -263,20 +263,25 @@
 
                     </div><!-- /.col-xs-4 -->
 
-                    <div class="col-md-6 col-lg-4">
-                        <div class="row visible-md">
-                            <div class="col-xs-12">
-                                <h2>&nbsp;</h2><!-- /.social tw -->
-                            </div><!-- /.col-xs-12 -->
-                        </div>
-
-                    </div><!-- /.col-xs-3 -->
-                    <div class="col-md-4 col-lg-12">
-                        
-                        <h3 class="" style="font-size: 20px;">Palabras Mas Utilizadas</h3>
-
-                        {{> highchartsHelper chartId="wctw" chartWidth="100%" charHeight="50%" chartObject=wctw }}    
-                    </div>
+                  
+                    <div class="col-md-12 col-lg-12" >
+                    <div class="visible-lg visible-md chartbox chart" >
+                                    <div class="profile interestbox topfollowers">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h2 class="text-center">
+                                                    Palabras mas utilizadas
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                {{> wordcloudtw}}
+                                            </div>
+                                        </div>
+                                    </div>
+                     </div>
+                     </div>
                     <div class="col-xs-6 col-md-6">
             
                     <div class="chartbox top-list" style="padding-bottom: 7px;height: 192px;">
@@ -287,20 +292,20 @@
 
                         <div class="col-md-6">
                             
-                            <p style="background:rgba(255,255,255,0.1) !important;">1 {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;">2 {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;">3 {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;">4 {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;">5 {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">1 {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">2 {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">3 {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">4 {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">5 {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p>
 
                         </div>
                         <div class="col-md-6">
                             
-                            <p style="background:rgba(255,255,255,0.2) !important;">6 {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;">7 {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;">8 {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;">9 {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;">10 {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">6 {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">7 {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">8 {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">9 {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">10 {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p>
 
                         </div>
 
@@ -463,20 +468,9 @@
 </template>
 
 <template name="wordcloudtw">
-    <div class="chartbox profile">
-        <div class="col-xs-12">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3 class="page-header gradientbg">Nube de palabras</h3>
-                </div>
-            </div>
-            <div class="row">
-                 <div id="my_canvas" class="col-lg-12" style="margin-top: 50px;"></div>
-                
-            </div>
-            
-        </div>
-    </div>
+ 
+                 <div id="my_canvas" class="col-lg-12"></div>
+
 </template>
 
 <template name="wordcloudinstagram">
