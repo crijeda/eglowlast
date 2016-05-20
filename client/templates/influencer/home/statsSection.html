@@ -62,12 +62,12 @@
 				        	<div class="col-xs-12 col-md-4">
 				        		<div class="chartbox sm single-number" data-toggle="tooltip" data-placement="top" title="Cantidad de Seguidores que tienes y gente que sigues desde que abriste tu cuenta en Twitter.">
 				        		<h2 class="boxhome">Mi Perfil</h2>
-				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
+				        			<p class="sm"><i class="fa fa-users sizelogo" style="margin-top: -15px;padding-bottom: 15px;"></i>
 					        			<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-followers">
 						        			<div class="circle">
 						        			<div class="circlepad">
-						        				{{ datatwitter.profilestatistics.[0].qtyfollowers }}
+						        				{{ transnumber datatwitter.profilestatistics.[0].qtyfollowers }}
 						        			</div>
 						        			</div>
 						        			</span>
@@ -78,7 +78,7 @@
 						        			<span id="data-total-following">
 						        			<div class="circle">
 						        			<div class="circlepad">
-						        				{{ datatwitter.profilestatistics.[0].qtyfollowing }}
+						        				{{ transnumber datatwitter.profilestatistics.[0].qtyfollowing }}
 						        			</div>
 						        			</div>
 						        			</span>
@@ -88,30 +88,38 @@
 				        		</div>
 				        	</div>
 
-				        	<div class="col-xs-12 col-md-4">
+				        	  	<div class="col-xs-12 col-md-4">
 				        		<div class="chartbox sm single-number">
-				        		<h2 class="boxhome">Mis Acciones</h2>
-			        				<div class="col-xs-6 col-md-6">
-					        			<p class="sm"><i class="fa fa-star sizelogo"></i> 
+				        		<h2 class="boxhome" style="font-size:16px;">Mis Acciones</h2>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-29.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					{{ datatwitter.profilestatistics.[0].qtyfavorites }}
+						        					<b>{{ transnumber datatwitter.profilestatistics.[0].qtyfavorites }}</b>
 						        				</span>
 						        			</div>
 					        			</p>
 					        			<h3>Favs</h3>
 			        				</div>
-			        				<div class="col-xs-6 col-md-6">
-					        			<p class="sm"><i class="fa fa-retweet sizelogo"></i>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-30.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					
-						        				{{ datatwitter.profilestatistics.[0].qtyretweets }}
-
+						        					<b>{{ transnumber datatwitter.profilestatistics.[0].qtyretweets }}</b>
 						        				</span>
 						        			</div>
 					        			</p>
-					        			<h3>RTs</h3>
+					        			<h3>Rts</h3>
+			        				</div>
+			        				<div class="col-xs-4 col-md-4">
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-31.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
+						        			<div class="interline">	
+						        				<span id="data-total-tweets">
+						        					<b>{{ transnumber datatwitter.profileHistorical.[0].HistoricalData.[0].listed_count }}</b>
+						        				</span>
+						        			</div>
+					        			</p>
+					        			<h3>Listados</h3>
 			        				</div>
 			        			</div>
 			        		</div>
@@ -119,36 +127,39 @@
 				        	<div class="col-xs-12 col-md-4">
 				        		<div class="chartbox sm single-number">
 				        		<h2 class="boxhome" style="font-size:16px;">Tipo de Contenido</h2>
-			        				<div class="col-xs-4 col-md-4">
-					        			<p class="sm"><i class="fa fa-twitter sizelogo"></i> 
+			        				<div class="col-xs-6 col-md-6">
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-25.png" style="height: 80px;margin-bottom: -25px;margin-top: -25px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					{{ datatwitter.profilestatistics.[0].qtytweets }}
+						        					<b>{{ transnumber datatwitter.profilestatistics.[0].qtytweets }}</b>
 						        				</span>
 						        			</div>
 					        			</p>
 					        			<h3>Tweets</h3>
 			        				</div>
-			        				<div class="col-xs-4 col-md-4">
+			        				<!-- <div class="col-xs-4 col-md-4">
 					        			<p class="sm"><i class="fa fa-picture-o sizelogo"></i>
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					{{ datatwitter.profilestatistics.[0].images }}
+						        					{{ transnumber datatwitter.profilestatistics.[0].images }}
 						        				</span>
 						        			</div>
 					        			</p>
 					        			<h3>Imagenes</h3>
+			        				</div> -->
+			        				<div class="col-xs-6 col-md-6">
+			        				<div class="col-xs-4 col-md-4" style="margin-left: -40px;">
+				        				<img src="images/iconos/Iconos_App_eGlow-10.png" style="height: 37px;margin-bottom: -10px;margin-top: 10px;">
+				        				<img src="images/iconos/Iconos_App_eGlow-11.png" style="height: 37px;margin-bottom: -10px;margin-top: 10px;">
+				        				<img src="images/iconos/Iconos_App_eGlow-12.png" style="height: 37px;margin-bottom: -10px;margin-top: 10px;">
 			        				</div>
-			        				<div class="col-xs-4 col-md-4">
-					        			<p class="sm"><i class="fa fa-video-camera sizelogo"></i> 
-						        			<div class="interline">	
-						        				<span id="data-total-tweets">
-						        					{{ datatwitter.profilestatistics.[0].videos }}
-						        				</span>
-						        			</div>
-					        			</p>
-					        			<h3>Videos</h3>
+			        				<div class="col-xs-4 col-md-8" style="margin-left: 15px;padding-top: 10px;">
+			        				<b style="font-size:25px;">{{transnumber2 writed }}</b>
+			        				<b style="font-size:25px;">{{transnumber datatwitter.profilestatistics.[0].videos }}</b>
+			        				<b style="font-size:25px;">{{transnumber datatwitter.profilestatistics.[0].images }}</b>
 			        				</div>
+			        				</div>				        		
+			        				<!-- </div> -->
 			        			</div>
 			        		</div>
 			        	</div>
@@ -201,12 +212,12 @@
 				        	<div class="col-xs-12 col-md-4">
 				        		<div class="chartbox sm single-number">
 				        		<h2 class="boxhome">Mi Perfil</h2>
-				        			<p class="sm"><i class="fa fa-users sizelogo"></i>
+				        			<p class="sm"><i class="fa fa-users sizelogo" style="margin-top: -15px;padding-bottom: 15px;"></i>
 					        			<div class="interline col-xs-6 col-md-6">	
 						        			<span id="data-total-followers">
 						        			<div class="circle">
 						        			<div class="circlepad">
-						        				{{ datainstagram.profilestatistics.[0].qtyfollowers }}
+						        				{{ transnumber datainstagram.profilestatistics.[0].qtyfollowers }}
 						        			</div>
 						        			</div>
 						        			</span>
@@ -217,7 +228,7 @@
 						        			<span id="data-total-following">
 						        			<div class="circle">
 						        			<div class="circlepad">
-						        				{{ datainstagram.profilestatistics.[0].qtyfollowing }}
+						        				{{ transnumber datainstagram.profilestatistics.[0].qtyfollowing }}
 						        			</div>
 						        			</div>
 						        			</span>
@@ -230,17 +241,17 @@
 				        	<div class="col-xs-12 col-md-4">
 				        		<div class="chartbox sm single-number">
 				        		<h2 class="boxhome">Mis Acciones</h2>
-			        				<div class="col-xs-6 col-md-6">
-					        			<p class="sm"><i class="fa fa-heart sizelogo"></i> 
+			        				<div class="col-xs-12 col-md-12">
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-06.png" style="height: 80px;margin-bottom: -25px;margin-top: -25px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					{{ datainstagram.profilestatistics.[0].qtylikes }}
+						        					<b>{{ transnumber datainstagram.profilestatistics.[0].qtylikes }}</b>
 						        				</span>
 						        			</div>
 					        			</p>
 					        			<h3>Likes</h3>
 			        				</div>
-			        				<div class="col-xs-6 col-md-6">
+			        				<!-- <div class="col-xs-6 col-md-6">
 					        			<p class="sm"><i class="fa fa-retweet sizelogo"></i>
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
@@ -259,7 +270,7 @@
 						        			</div>
 					        			</p>
 					        			<h3>RTs</h3>
-			        				</div>
+			        				</div> -->
 			        			</div>
 			        		</div>
 
@@ -267,26 +278,26 @@
 				        		<div class="chartbox sm single-number">
 				        		<h2 class="boxhome" style="font-size:16px;">Tipo de Contenido</h2>
 			        				<div class="col-xs-6 col-md-6">
-					        			<p class="sm"><i class="fa fa-instagram sizelogo"></i> 
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-21.png" style="height: 80px;margin-bottom: -25px;margin-top: -25px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
-						        					{{ datainstagram.profilestatistics.[0].qtyfeeds }}
+						        					<b>{{ datainstagram.profilestatistics.[0].qtyfeeds }}</b>
 						        				</span>
 						        			</div>
 					        			</p>
 					        			<h3>Posts</h3>
 			        				</div>
 			        				<div class="col-xs-6 col-md-6">
-					        			<p class="sm"><i class="fa fa-picture-o sizelogo"></i>
+					        			<p class="sm"><img src="images/iconos/Iconos_App_eGlow-12.png" style="height: 80px;margin-bottom: -25px;margin-top: -25px;">
 						        			<div class="interline">	
 						        				<span id="data-total-tweets">
 						        					{{ # if datainstagram.profilestatistics.[0].images}}
 
-						        						{{ datainstagram.profilestatistics.[0].images}}
+						        						<b>{{ datainstagram.profilestatistics.[0].images}}</b>
 
 						        					{{else}}
 						        					
-						        						0
+						        						<b>0</b>
 
 						        					{{/if}}
 						        				</span>

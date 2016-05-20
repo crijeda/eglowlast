@@ -113,6 +113,7 @@ Template.myCommunitySection.helpers({
     },
 
 
+
 });
 
 Template.twitterCommunity.helpers({
@@ -195,6 +196,18 @@ Template.twitterCommunity.helpers({
         var screenname = Meteor.user().services.instagram.username;
         var datainstagram = DataInstagram.find({screenname:screenname}).fetch();
         return datainstagram[0]
+    },
+    transnumber: function (x){
+
+    if(x>999 && x<1000000){
+        number = x/1000;
+        return Math.round( number * 10 )/10 +" K"
+    }
+    if(x>999999 && x<1000000000){
+        number = x/1000000;
+        return Math.round( number * 10 )/10 +" M"
+    }
+    return x
     },
 
 });
@@ -282,6 +295,16 @@ Template.twitterCommunity.pielocation = function() {
      var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
      var location = datatwitter[0].profilecommunity[0].LocationDistribution;
 
+     var data = new Array();
+     
+    for (i = 0; i < 9; i++) {
+         data.push({
+         location: location[i].Location,
+         Qty: location[i].Qty,
+        });
+
+    }
+
     return {
         chart: {
             type: 'bar'
@@ -293,7 +316,7 @@ Template.twitterCommunity.pielocation = function() {
             text: ''
         },
         xAxis: {
-            categories: _.pluck(location,'Location'),
+            categories: _.pluck(data,'location'),
             color:'transparent',
             title: {
                 text: null
@@ -336,7 +359,7 @@ Template.twitterCommunity.pielocation = function() {
         },
         series: [{
             name: 'Personas',
-            data: _.pluck(location,'Qty'),
+            data: _.pluck(data,'Qty'),
             color: '#4e7283'
         }]
 
@@ -351,65 +374,65 @@ Template.twitterCommunity.pieProfesions = function() {
      var datatwitter = DataTwitter.find({screenname:screenname}).fetch();
      var professions = datatwitter[0].profilecommunity[0].Professions;
 
-        var data = new Array();
+     var data = new Array();
      var len = professions.length;
      
-    for (i = 0; i < len; i++) {
-    if (i % 2 == 1){
-         data.push({
-        name: professions[i].Profesion,
-        y: professions[i].Qty,
-        color: '#557080',
-        }); 
-    }else{
-        data.push({
-        name: professions[i].Profesion,
-        y: professions[i].Qty,
-        color: '#898592',
-        });    
-    }
-   
+        for (i = 0; i < len; i++) {
+        if (i % 2 == 1){
+             data.push({
+            name: professions[i].Profesion,
+            y: professions[i].Qty,
+            color: '#557080',
+            }); 
+        }else{
+            data.push({
+            name: professions[i].Profesion,
+            y: professions[i].Qty,
+            color: '#898592',
+            });    
+        }
+       
 
-    }
+        }
 
     return {
-chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-        title: {
-            text: '',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 40
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                center: ['55%', '10%'],
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            type: 'pie',
-            name: 'Personas',
-            innerSize: '50%',
-            data: data
-        }]
+       chart: {
+           plotBackgroundColor: null,
+           plotBorderWidth: 0,
+           plotShadow: false
+       },
+       title: {
+           text: '',
+           align: 'center',
+           verticalAlign: 'middle',
+           y: 40
+       },
+       tooltip: {
+           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+       },
+       plotOptions: {
+           pie: {
+               center: ['60%', '50%'],
+               allowPointSelect: true,
+               cursor: 'pointer',
+               dataLabels: {
+                   enabled: false,
+                   format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                   style: {
+                       color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                   }
+               }
+           }
+       },
+       credits: {
+           enabled: false
+       },
+       series: [{
+           type: 'pie',
+           name: 'Personas',
+           innerSize: '50%',
+           data: data
+       }]
 
-    };
+   };
 };

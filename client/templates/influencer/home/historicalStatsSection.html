@@ -15,17 +15,17 @@
                        <div class="col-md-3 col-lg-3" style="padding-left:0px;padding-right:0px;">
                            <!-- <p style="color:white;">Desde:</p> -->
                            <div class="form-group input-group">
-                               <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                               <span class="input-group-addon" style="background-color: #4e7283;"><i class="fa fa-calendar"></i>
                                </span>
-                               <input type="text" class="form-control" value="{{from}}" id="datepicker-from-community">
+                               <input type="text" class="form-control" style="border-radius: 0px 15px 15px 0px !important;    background: #989aa4;" value="{{from}}" id="datepicker-from-community" disabled>
                            </div>
                        </div><!-- /.col-xs-3 -->
                        <div class="col-md-3 col-lg-3" style="padding-left:0px;padding-right:0px;">
                            <!-- <p style="color:white;">Hasta:</p> -->
                            <div class="form-group input-group">
-                               <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                               <span class="input-group-addon" style="background-color: #4e7283;"><i class="fa fa-calendar"></i>
                                </span>
-                               <input type="text" class="form-control" value="{{to}}" id="datepicker-to-community">
+                               <input type="text" class="form-control" style="border-radius: 0px 15px 15px 0px !important;    background: #989aa4;" value="{{to}}" id="datepicker-to-community" disabled>
                            </div>
                        </div><!-- /.col-xs-3 -->
                        <div class="col-md-1">
@@ -107,7 +107,7 @@
                                                 <div class="chartbox sm single-number">
                                                     <h2 class="boxhome">Mi Perfil</h2>
                                                     <p class="sm">
-                                                        <i class="fa fa-users sizelogo"></i> 
+                                                        <i class="fa fa-users sizelogo" style="margin-top: -15px;padding-bottom: 15px;"></i>
                                                         <div class="interline col-xs-6 col-md-6">   
                                                             <span id="data-historical-followers">
                                                             <div class="circle">
@@ -140,10 +140,10 @@
                                                     <h2 class="boxhome">Mis Acciones</h2>
 
                                                     <div class="col-xs-4 col-md-4">
-                                                        <p class="sm"><i class="fa fa-star sizelogo"></i> 
+                                                        <p class="sm"><img src="images/iconos/Iconos_App_eGlow-29.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
                                                             <div class="interline"> 
                                                                 <span id="data-total-tweets">
-                                                                    {{datatwitter.profileHistorical.[0].HistoricalData.[0].favorites_count}}
+                                                                    <b>{{deltafavs}}</b>
                                                                 </span>
                                                             </div>
                                                         </p>
@@ -151,10 +151,10 @@
                                                     </div><!-- /.col-xs-6 -->
 
                                                     <div class="col-xs-4 col-md-4">
-                                                        <p class="sm"><i class="fa fa-twitter sizelogo"></i>
+                                                        <p class="sm"><img src="images/iconos/Iconos_App_eGlow-30.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
                                                             <div class="interline"> 
                                                                 <span id="data-total-tweets">
-                                                                    {{datatwitter.profilestatistics.[0].qtyretweets}}
+                                                                    <b>{{datatwitter.profilestatistics.[0].qtyretweets}}</b>
                                                                 </span>
                                                             </div>
                                                         </p>
@@ -163,10 +163,10 @@
 
 
                                                     <div class="col-xs-4 col-md-4">
-                                                        <p class="sm"><i class="fa fa-list sizelogo"></i> 
+                                                        <p class="sm"><img src="images/iconos/Iconos_App_eGlow-31.png" style="height: 50px;margin-bottom: -10px;margin-top: -10px;">
                                                             <div class="interline"> 
                                                                 <span id="data-total-tweets">
-                                                                    {{datatwitter.profileHistorical.[0].HistoricalData.[0].listed_count}}
+                                                                    <b>{{deltalisted}}</b>
                                                                 </span>
                                                             </div>
                                                         </p>
@@ -182,23 +182,23 @@
 
                                                     <div class="col-xs-6 col-md-6">
                                                         <p class="sm">
-                                                        <i class="fa fa-eye sizelogo"></i> 
-                                                            <div class="interline"> 
+                                                        <img src="images/iconos/Iconos_App_eGlow-02.png" style="height: 80px;margin-bottom: -10px;margin-top: -25px;">
+                                                            
                                                                 <span id="data-total-tweets">
-                                                                    {{reach}}
+                                                                    <b>{{transnumber reach}}</b>
                                                                 </span>
-                                                            </div>
+                                                            
                                                         </p>
                                                         <h3>Alcance</h3>
                                                     </div><!-- /.col-xs-6 -->
 
                                                     <div class="col-xs-6 col-md-6">
-                                                        <p class="sm"><i class="fa fa-thumbs-o-up sizelogo"></i> 
-                                                            <div class="interline"> 
+                                                        <p class="sm"><img src="images/iconos/Iconos_App_eGlow-03.png" style="height: 80px;margin-bottom: -10px;margin-top: -25px;">
+                                                            
                                                                 <span id="data-total-tweets">
-                                                                    {{engagement}}%
+                                                                    <b>{{engagement}}%</b>
                                                                 </span>
-                                                            </div>
+                                                          
                                                         </p>
                                                         <h3>Engagement</h3>
                                                     </div><!-- /.col-xs-6 -->
@@ -223,10 +223,10 @@
                                                     <div class="row">
                                                     <div class="titlebestday">Mejor día para publicar</div>
                                                         <div class="col-xs-12">
-                                                            <p class="icon"><i class="fa fa-calendar"></i>
+                                                            <p class="icon"><img src="images/iconos/Iconos_App_eGlow-34.png" style="height: 80px;margin-bottom: -15px;margin-top: -20px;">
                                                             </p>
                                                             <p id="data-historical-bestday">
-                                                                {{day}}
+                                                               <b> {{day}}</b>
                                                             </p>
                                                         </div><!-- /.col-xs-4 -->
                                                     </div>
@@ -240,10 +240,10 @@
                                                     <div class="row">
                                                     <div class="titlebestday">Mejor hora para publicar</div>
                                                         <div class="col-xs-12">
-                                                            <p class="icon"><i class="fa fa-clock-o"></i>
+                                                            <p class="icon"><img src="images/iconos/Iconos_App_eGlow-35.png" style="height: 80px;margin-bottom: -15px;margin-top: -20px;">
                                                             </p>
                                                             <p id="data-historical-bestday">
-                                                                {{hour}} h
+                                                               <b> {{hour}} h </b>
                                                             </p>
                                                         </div><!-- /.col-xs-4 -->
                                                     </div>
@@ -284,28 +284,28 @@
                      </div>
                     <div class="col-xs-6 col-md-6">
             
-                    <div class="chartbox top-list" style="padding-bottom: 7px;height: 192px;">
+                    <div class="chartbox top-list" style="padding-bottom: 7px;height: 200px;">
                         <h2 class="text-center">
-                            <i class="fa fa-hashtag"></i>
+                            <img src="images/iconos/Iconos_App_eGlow-13.png" style="height:30px;">
                             Top Hashtags
                         </h2>
 
                         <div class="col-md-6">
                             
-                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">1 {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">2 {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">3 {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">4 {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">5 {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>1</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[0].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>2</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[1].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>3</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[2].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>4</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[3].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>5</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[4].Hashtag}}</p>
 
                         </div>
                         <div class="col-md-6">
                             
-                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">6 {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">7 {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">8 {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;">9 {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p>
-                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;">10 {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>6</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[5].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>7</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[6].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>8</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[7].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.1) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>9</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[8].Hashtag}}</p>
+                            <p style="background:rgba(255,255,255,0.2) !important;border-radius: 10px;    padding-left: 15px;"><i class="fa fa-user" style="font-size: 20px;"></i><b>10</b> {{datatwitter.profileHistorical.[0].Top10Hashtags.[9].Hashtag}}</p>
 
                         </div>
 
@@ -315,32 +315,32 @@
 
                     <div class="col-xs-6 col-md-6">
             
-                        <div class="chartbox top-list" style="height: 192px;">
+                        <div class="chartbox top-list" style="height: 200px;">
                             <h2 class="text-center">
                                 <i class="fa fa-list-ul"></i>
                                 Top Marcas
                             </h2>
 
-                            <ul>
+                            <ul style="list-style-type:none;">
                                 
                                 <li>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star" style="font-size: 20px;"></i>
                                     {{datatwitter.profileHistorical.[0].Top10Brands.[0].Marca}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star" style="font-size: 20px;"></i>
                                     {{datatwitter.profileHistorical.[0].Top10Brands.[1].Marca}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star" style="font-size: 20px;"></i>
                                     {{datatwitter.profileHistorical.[0].Top10Brands.[2].Marca}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star" style="font-size: 20px;"></i>
                                     {{datatwitter.profileHistorical.[0].Top10Brands.[3].Marca}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star" style="font-size: 20px;"></i>
                                     {{datatwitter.profileHistorical.[0].Top10Brands.[4].Marca}}
                                 </li>
 

@@ -1,3 +1,9 @@
+.wordcloud{
+	padding-top: 30px;
+}
+.community-info .chartbox .highcharts-grid path {
+stroke:none;
+}
 .circle{
 	border: solid;
     border-color: #4e7283;
@@ -392,6 +398,8 @@ footer p {
 .main-footer {
 	margin-left: 0;
 	position: relative;
+	background: #000053;
+    color: white;
 }
 
 @media (max-width : 767px) {
